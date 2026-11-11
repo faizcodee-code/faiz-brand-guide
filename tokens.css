@@ -1,0 +1,97 @@
+/* Faiz UI/UX Brand Guide: design tokens (v1.0)
+   Import this file first, then build on the --fz-* variables.
+   Light is the default. Dark follows the system, or force it with data-theme="dark" | "light" on <html>. */
+:root {
+  /* Neutrals */
+  --fz-bg: #f8f8f9;
+  --fz-surface: #ffffff;
+  --fz-fg: #1d1f22;
+  --fz-mute: #6a6d74;
+  --fz-line: #e0e1e4;
+  --fz-field: #ffffff;
+  --fz-mist: #eceef0;
+  --fz-graphite: #25272a;
+
+  /* Brand action */
+  --fz-primary: #3b5bdb;
+  --fz-primary-top: #4a68e0;
+  --fz-primary-hover: #2f4bc0;
+  --fz-primary-press: #2840a3;
+  --fz-on-primary: #ffffff;
+  --fz-primary-tint: #edf0fd;
+  --fz-focus: #3b5bdb;
+
+  /* Status: base is for icons and fills, ink is for text, tint is for backgrounds */
+  --fz-success: #2f9e5b; --fz-success-ink: #1f7a45; --fz-success-tint: #e8f6ee;
+  --fz-danger:  #d64545; --fz-danger-ink:  #b83232; --fz-danger-tint:  #fdecec;
+  --fz-warning: #e6962a; --fz-warning-ink: #9a5b0a; --fz-warning-tint: #fdf3e3;
+  --fz-info:    #3b78d8; --fz-info-ink:    #2d5fb8; --fz-info-tint:    #eaf1fc;
+
+  /* Icon accents: each has a light top stop and a deep bottom stop, like the icon gradients */
+  --fz-green-light: #a6e8bd;  --fz-green: #2f9e5b;
+  --fz-red-light: #f6aaaa;    --fz-red: #d64545;
+  --fz-amber-light: #fbd596;  --fz-amber: #e6962a;
+  --fz-blue-light: #acccf7;   --fz-blue: #3b78d8;
+  --fz-orange-light: #fbc496; --fz-orange: #e8702a;
+  --fz-yellow-light: #fdea98; --fz-yellow: #e8b923;
+  --fz-purple-light: #cdbcf3; --fz-purple: #7a56d6;
+  --fz-pink-light: #f7b4cd;   --fz-pink: #d6457f;
+  --fz-teal-light: #9ce3d9;   --fz-teal: #1f9a8f;
+
+  /* Frosted graphite gradients (match the icon fills) */
+  --fz-grad-base: linear-gradient(180deg, #d0d3d7, #90939a 55%, #55585e);
+  --fz-grad-deep: linear-gradient(180deg, #8d9096, #2c2e32);
+  --fz-grad-soft: linear-gradient(180deg, #e0e2e5, #9ea1a7);
+
+  /* Type */
+  --fz-font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --fz-font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --fz-text-xs: 12.5px; --fz-text-sm: 14px; --fz-text-md: 16px; --fz-text-lg: 18px;
+  --fz-text-xl: 24px; --fz-text-2xl: 32px; --fz-text-3xl: 48px; --fz-text-4xl: 64px;
+
+  /* Space (4 px base) */
+  --fz-s1: 4px; --fz-s2: 8px; --fz-s3: 12px; --fz-s4: 16px; --fz-s5: 24px;
+  --fz-s6: 32px; --fz-s7: 48px; --fz-s8: 64px; --fz-s9: 96px;
+
+  /* Radius */
+  --fz-r-sm: 6px; --fz-r-md: 10px; --fz-r-lg: 14px; --fz-r-xl: 20px; --fz-r-pill: 999px;
+
+  /* Elevation */
+  --fz-shadow-icon: 0 3.5px 5px rgba(0, 0, 0, .3);
+  --fz-shadow-1: 0 1px 2px rgba(29, 31, 34, .08), 0 2px 6px rgba(29, 31, 34, .06);
+  --fz-shadow-2: 0 3px 6px rgba(29, 31, 34, .12), 0 12px 24px rgba(29, 31, 34, .08);
+  --fz-shine: inset 0 1px 0 rgba(255, 255, 255, .35);
+
+  /* Motion */
+  --fz-ease: cubic-bezier(.2, .7, .2, 1);
+  --fz-fast: 120ms; --fz-base: 180ms; --fz-slow: 280ms;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fz-bg: #131416; --fz-surface: #1b1c1f; --fz-fg: #ececee; --fz-mute: #9a9da4;
+    --fz-line: #2a2c30; --fz-field: #1b1c1f; --fz-mist: #2a2c30; --fz-graphite: #ececee;
+    --fz-primary: #8ea2ff; --fz-primary-top: #a3b3ff; --fz-primary-hover: #a3b3ff; --fz-primary-press: #7a8ff0;
+    --fz-on-primary: #131416; --fz-primary-tint: #1f2540; --fz-focus: #8ea2ff;
+    --fz-success-ink: #6fd09a; --fz-success-tint: #17261e;
+    --fz-danger-ink: #f08a8a;  --fz-danger-tint: #2b1a1a;
+    --fz-warning-ink: #f0b866; --fz-warning-tint: #2a2214;
+    --fz-info-ink: #8fb6f0;    --fz-info-tint: #172234;
+    --fz-shadow-1: 0 1px 2px rgba(0, 0, 0, .4); --fz-shadow-2: 0 12px 28px rgba(0, 0, 0, .5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fz-bg: #131416; --fz-surface: #1b1c1f; --fz-fg: #ececee; --fz-mute: #9a9da4;
+  --fz-line: #2a2c30; --fz-field: #1b1c1f; --fz-mist: #2a2c30; --fz-graphite: #ececee;
+  --fz-primary: #8ea2ff; --fz-primary-top: #a3b3ff; --fz-primary-hover: #a3b3ff; --fz-primary-press: #7a8ff0;
+  --fz-on-primary: #131416; --fz-primary-tint: #1f2540; --fz-focus: #8ea2ff;
+  --fz-success-ink: #6fd09a; --fz-success-tint: #17261e;
+  --fz-danger-ink: #f08a8a;  --fz-danger-tint: #2b1a1a;
+  --fz-warning-ink: #f0b866; --fz-warning-tint: #2a2214;
+  --fz-info-ink: #8fb6f0;    --fz-info-tint: #172234;
+  --fz-shadow-1: 0 1px 2px rgba(0, 0, 0, .4); --fz-shadow-2: 0 12px 28px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --fz-fast: 0ms; --fz-base: 0ms; --fz-slow: 0ms; }
+}

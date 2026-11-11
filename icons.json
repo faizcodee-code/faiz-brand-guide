@@ -1,0 +1,1072 @@
+[
+ {
+  "name": "Folder",
+  "file": "icons/folder.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Home",
+  "file": "icons/home.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Apps",
+  "file": "icons/apps.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Search",
+  "file": "icons/search.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Notifications",
+  "file": "icons/notifications.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Messages",
+  "file": "icons/messages.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "User",
+  "file": "icons/user.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Team",
+  "file": "icons/team.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Settings",
+  "file": "icons/settings.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Filters",
+  "file": "icons/filters.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Add",
+  "file": "icons/add.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Check",
+  "file": "icons/check.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Close",
+  "file": "icons/close.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Delete",
+  "file": "icons/delete.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Edit",
+  "file": "icons/edit.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "File",
+  "file": "icons/file.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Bookmark",
+  "file": "icons/bookmark.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Favorite",
+  "file": "icons/favorite.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Like",
+  "file": "icons/like.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Share",
+  "file": "icons/share.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Upload",
+  "file": "icons/upload.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Download",
+  "file": "icons/download.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Refresh",
+  "file": "icons/refresh.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Sync",
+  "file": "icons/sync.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Link",
+  "file": "icons/link.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Unlink",
+  "file": "icons/unlink.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Security",
+  "file": "icons/security.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Lock",
+  "file": "icons/lock.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Unlock",
+  "file": "icons/unlock.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Key",
+  "file": "icons/key.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Calendar",
+  "file": "icons/calendar.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Clock",
+  "file": "icons/clock.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Timer",
+  "file": "icons/timer.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Alarm",
+  "file": "icons/alarm.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Play",
+  "file": "icons/play.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Pause",
+  "file": "icons/pause.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Stop",
+  "file": "icons/stop.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Forward",
+  "file": "icons/forward.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Rewind",
+  "file": "icons/rewind.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Video",
+  "file": "icons/video.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Image",
+  "file": "icons/image.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Gallery",
+  "file": "icons/gallery.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Camera",
+  "file": "icons/camera.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Mic",
+  "file": "icons/mic.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Volume",
+  "file": "icons/volume.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Mute",
+  "file": "icons/mute.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Headphones",
+  "file": "icons/headphones.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Music",
+  "file": "icons/music.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Analytics",
+  "file": "icons/analytics.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Reports",
+  "file": "icons/reports.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Inbox",
+  "file": "icons/inbox.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Send",
+  "file": "icons/send.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Navigate",
+  "file": "icons/navigate.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Location",
+  "file": "icons/location.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Map",
+  "file": "icons/map.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Globe",
+  "file": "icons/globe.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Wi-Fi",
+  "file": "icons/wi-fi.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Bluetooth",
+  "file": "icons/bluetooth.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Brightness",
+  "file": "icons/brightness.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Dark Mode",
+  "file": "icons/dark-mode.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Laptop",
+  "file": "icons/laptop.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Desktop",
+  "file": "icons/desktop.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Mobile",
+  "file": "icons/mobile.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Tablet",
+  "file": "icons/tablet.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Watch",
+  "file": "icons/watch.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Database",
+  "file": "icons/database.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Layers",
+  "file": "icons/layers.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "3D / Box",
+  "file": "icons/3d-box.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Tag",
+  "file": "icons/tag.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Discount",
+  "file": "icons/discount.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Cart",
+  "file": "icons/cart.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Bag",
+  "file": "icons/bag.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Card",
+  "file": "icons/card.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Wallet",
+  "file": "icons/wallet.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Receipt",
+  "file": "icons/receipt.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Bank",
+  "file": "icons/bank.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Gift",
+  "file": "icons/gift.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Power",
+  "file": "icons/power.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Info",
+  "file": "icons/info.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Help",
+  "file": "icons/help.svg",
+  "group": "Essentials"
+ },
+ {
+  "name": "Arrow Up",
+  "file": "icons/arrow-up.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Arrow Down",
+  "file": "icons/arrow-down.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Arrow Left",
+  "file": "icons/arrow-left.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Arrow Right",
+  "file": "icons/arrow-right.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Chevron Up",
+  "file": "icons/chevron-up.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Chevron Down",
+  "file": "icons/chevron-down.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Chevron Left",
+  "file": "icons/chevron-left.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Chevron Right",
+  "file": "icons/chevron-right.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Menu",
+  "file": "icons/menu.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "More",
+  "file": "icons/more.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "External Link",
+  "file": "icons/external-link.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Expand",
+  "file": "icons/expand.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Collapse",
+  "file": "icons/collapse.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Undo",
+  "file": "icons/undo.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Redo",
+  "file": "icons/redo.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Sort",
+  "file": "icons/sort.svg",
+  "group": "Navigation"
+ },
+ {
+  "name": "Copy",
+  "file": "icons/copy.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Paste",
+  "file": "icons/paste.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Cut",
+  "file": "icons/cut.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Save",
+  "file": "icons/save.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Print",
+  "file": "icons/print.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Zoom In",
+  "file": "icons/zoom-in.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Zoom Out",
+  "file": "icons/zoom-out.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Crop",
+  "file": "icons/crop.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Pin",
+  "file": "icons/pin.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Attach",
+  "file": "icons/attach.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Archive",
+  "file": "icons/archive.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "View",
+  "file": "icons/view.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Hide",
+  "file": "icons/hide.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Flag",
+  "file": "icons/flag.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Funnel",
+  "file": "icons/funnel.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Drag",
+  "file": "icons/drag.svg",
+  "group": "Actions"
+ },
+ {
+  "name": "Success",
+  "file": "icons/success.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Warning",
+  "file": "icons/warning.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Error",
+  "file": "icons/error.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Loading",
+  "file": "icons/loading.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Block",
+  "file": "icons/block.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Verified",
+  "file": "icons/verified.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Battery",
+  "file": "icons/battery.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Signal",
+  "file": "icons/signal.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Offline",
+  "file": "icons/offline.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Bug",
+  "file": "icons/bug.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Lightbulb",
+  "file": "icons/lightbulb.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Rocket",
+  "file": "icons/rocket.svg",
+  "group": "Status"
+ },
+ {
+  "name": "Mail",
+  "file": "icons/mail.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Mail Open",
+  "file": "icons/mail-open.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Phone",
+  "file": "icons/phone.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Video Call",
+  "file": "icons/video-call.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Comment",
+  "file": "icons/comment.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Mention",
+  "file": "icons/mention.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Megaphone",
+  "file": "icons/megaphone.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Emoji",
+  "file": "icons/emoji.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Thumbs Up",
+  "file": "icons/thumbs-up.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Thumbs Down",
+  "file": "icons/thumbs-down.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Feed",
+  "file": "icons/feed.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Conversation",
+  "file": "icons/conversation.svg",
+  "group": "Communication"
+ },
+ {
+  "name": "Add User",
+  "file": "icons/add-user.svg",
+  "group": "People and account"
+ },
+ {
+  "name": "Remove User",
+  "file": "icons/remove-user.svg",
+  "group": "People and account"
+ },
+ {
+  "name": "ID Card",
+  "file": "icons/id-card.svg",
+  "group": "People and account"
+ },
+ {
+  "name": "Login",
+  "file": "icons/login.svg",
+  "group": "People and account"
+ },
+ {
+  "name": "Logout",
+  "file": "icons/logout.svg",
+  "group": "People and account"
+ },
+ {
+  "name": "Fingerprint",
+  "file": "icons/fingerprint.svg",
+  "group": "People and account"
+ },
+ {
+  "name": "Password",
+  "file": "icons/password.svg",
+  "group": "People and account"
+ },
+ {
+  "name": "Crown",
+  "file": "icons/crown.svg",
+  "group": "People and account"
+ },
+ {
+  "name": "Support",
+  "file": "icons/support.svg",
+  "group": "People and account"
+ },
+ {
+  "name": "Coin",
+  "file": "icons/coin.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Money",
+  "file": "icons/money.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Trend Up",
+  "file": "icons/trend-up.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Trend Down",
+  "file": "icons/trend-down.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Store",
+  "file": "icons/store.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Truck",
+  "file": "icons/truck.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Package",
+  "file": "icons/package.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Barcode",
+  "file": "icons/barcode.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "QR Code",
+  "file": "icons/qr-code.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Piggy Bank",
+  "file": "icons/piggy-bank.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Briefcase",
+  "file": "icons/briefcase.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Trophy",
+  "file": "icons/trophy.svg",
+  "group": "Commerce"
+ },
+ {
+  "name": "Code",
+  "file": "icons/code.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Terminal",
+  "file": "icons/terminal.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Git Branch",
+  "file": "icons/git-branch.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Plug",
+  "file": "icons/plug.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Server",
+  "file": "icons/server.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Chip",
+  "file": "icons/chip.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Palette",
+  "file": "icons/palette.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Brush",
+  "file": "icons/brush.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Ruler",
+  "file": "icons/ruler.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Layout",
+  "file": "icons/layout.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Puzzle",
+  "file": "icons/puzzle.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Wrench",
+  "file": "icons/wrench.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "Magic Wand",
+  "file": "icons/magic-wand.svg",
+  "group": "Developer and design"
+ },
+ {
+  "name": "New File",
+  "file": "icons/new-file.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Folder Open",
+  "file": "icons/folder-open.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Zip File",
+  "file": "icons/zip-file.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Clipboard",
+  "file": "icons/clipboard.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Book",
+  "file": "icons/book.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Notebook",
+  "file": "icons/notebook.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Table",
+  "file": "icons/table.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Checklist",
+  "file": "icons/checklist.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Translate",
+  "file": "icons/translate.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Sticky Note",
+  "file": "icons/sticky-note.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Download File",
+  "file": "icons/download-file.svg",
+  "group": "Files and documents"
+ },
+ {
+  "name": "Cloudy",
+  "file": "icons/cloudy.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Rain",
+  "file": "icons/rain.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Snow",
+  "file": "icons/snow.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Storm",
+  "file": "icons/storm.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Wind",
+  "file": "icons/wind.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Leaf",
+  "file": "icons/leaf.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Flame",
+  "file": "icons/flame.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Droplet",
+  "file": "icons/droplet.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Thermometer",
+  "file": "icons/thermometer.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Umbrella",
+  "file": "icons/umbrella.svg",
+  "group": "Weather and nature"
+ },
+ {
+  "name": "Coffee",
+  "file": "icons/coffee.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Car",
+  "file": "icons/car.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Plane",
+  "file": "icons/plane.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Bicycle",
+  "file": "icons/bicycle.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Building",
+  "file": "icons/building.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Education",
+  "file": "icons/education.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Health",
+  "file": "icons/health.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Fitness",
+  "file": "icons/fitness.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Compass",
+  "file": "icons/compass.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Target",
+  "file": "icons/target.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Sparkles",
+  "file": "icons/sparkles.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Bell Off",
+  "file": "icons/bell-off.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Calendar Check",
+  "file": "icons/calendar-check.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "History",
+  "file": "icons/history.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Scissors",
+  "file": "icons/scissors.svg",
+  "group": "Everyday objects"
+ },
+ {
+  "name": "Toggle On",
+  "file": "icons/toggle-on.svg",
+  "group": "Form controls"
+ },
+ {
+  "name": "Toggle Off",
+  "file": "icons/toggle-off.svg",
+  "group": "Form controls"
+ },
+ {
+  "name": "Checkbox",
+  "file": "icons/checkbox.svg",
+  "group": "Form controls"
+ },
+ {
+  "name": "Checked",
+  "file": "icons/checked.svg",
+  "group": "Form controls"
+ },
+ {
+  "name": "Radio Off",
+  "file": "icons/radio-off.svg",
+  "group": "Form controls"
+ },
+ {
+  "name": "Radio On",
+  "file": "icons/radio-on.svg",
+  "group": "Form controls"
+ },
+ {
+  "name": "Slider",
+  "file": "icons/slider.svg",
+  "group": "Form controls"
+ },
+ {
+  "name": "Text Input",
+  "file": "icons/text-input.svg",
+  "group": "Form controls"
+ }
+]

@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faiz UI/UX Brand Guide</title>
+<meta name="description" content="The Faiz design system: colour, typography, icons, components and UX structure for consistent projects.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&family=DM+Sans:wght@400;500&display=swap">
+<style>
+/* Faiz UI/UX Brand Guide: design tokens (v1.0)
+   Import this file first, then build on the --fz-* variables.
+   Light is the default. Dark follows the system, or force it with data-theme="dark" | "light" on <html>. */
+:root {
+  /* Neutrals */
+  --fz-bg: #f8f8f9;
+  --fz-surface: #ffffff;
+  --fz-fg: #1d1f22;
+  --fz-mute: #6a6d74;
+  --fz-line: #e0e1e4;
+  --fz-field: #ffffff;
+  --fz-mist: #eceef0;
+  --fz-graphite: #25272a;
+
+  /* Brand action */
+  --fz-primary: #3b5bdb;
+  --fz-primary-top: #4a68e0;
+  --fz-primary-hover: #2f4bc0;
+  --fz-primary-press: #2840a3;
+  --fz-on-primary: #ffffff;
+  --fz-primary-tint: #edf0fd;
+  --fz-focus: #3b5bdb;
+
+  /* Status: base is for icons and fills, ink is for text, tint is for backgrounds */
+  --fz-success: #2f9e5b; --fz-success-ink: #1f7a45; --fz-success-tint: #e8f6ee;
+  --fz-danger:  #d64545; --fz-danger-ink:  #b83232; --fz-danger-tint:  #fdecec;
+  --fz-warning: #e6962a; --fz-warning-ink: #9a5b0a; --fz-warning-tint: #fdf3e3;
+  --fz-info:    #3b78d8; --fz-info-ink:    #2d5fb8; --fz-info-tint:    #eaf1fc;
+
+  /* Icon accents: each has a light top stop and a deep bottom stop, like the icon gradients */
+  --fz-green-light: #a6e8bd;  --fz-green: #2f9e5b;
+  --fz-red-light: #f6aaaa;    --fz-red: #d64545;
+  --fz-amber-light: #fbd596;  --fz-amber: #e6962a;
+  --fz-blue-light: #acccf7;   --fz-blue: #3b78d8;
+  --fz-orange-light: #fbc496; --fz-orange: #e8702a;
+  --fz-yellow-light: #fdea98; --fz-yellow: #e8b923;
+  --fz-purple-light: #cdbcf3; --fz-purple: #7a56d6;
+  --fz-pink-light: #f7b4cd;   --fz-pink: #d6457f;
+  --fz-teal-light: #9ce3d9;   --fz-teal: #1f9a8f;
+
+  /* Frosted graphite gradients (match the icon fills) */
+  --fz-grad-base: linear-gradient(180deg, #d0d3d7, #90939a 55%, #55585e);
+  --fz-grad-deep: linear-gradient(180deg, #8d9096, #2c2e32);
+  --fz-grad-soft: linear-gradient(180deg, #e0e2e5, #9ea1a7);
+
+  /* Type */
+  --fz-font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --fz-font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --fz-text-xs: 12.5px; --fz-text-sm: 14px; --fz-text-md: 16px; --fz-text-lg: 18px;
+  --fz-text-xl: 24px; --fz-text-2xl: 32px; --fz-text-3xl: 48px; --fz-text-4xl: 64px;
+
+  /* Space (4 px base) */
+  --fz-s1: 4px; --fz-s2: 8px; --fz-s3: 12px; --fz-s4: 16px; --fz-s5: 24px;
+  --fz-s6: 32px; --fz-s7: 48px; --fz-s8: 64px; --fz-s9: 96px;
+
+  /* Radius */
+  --fz-r-sm: 6px; --fz-r-md: 10px; --fz-r-lg: 14px; --fz-r-xl: 20px; --fz-r-pill: 999px;
+
+  /* Elevation */
+  --fz-shadow-icon: 0 3.5px 5px rgba(0, 0, 0, .3);
+  --fz-shadow-1: 0 1px 2px rgba(29, 31, 34, .08), 0 2px 6px rgba(29, 31, 34, .06);
+  --fz-shadow-2: 0 3px 6px rgba(29, 31, 34, .12), 0 12px 24px rgba(29, 31, 34, .08);
+  --fz-shine: inset 0 1px 0 rgba(255, 255, 255, .35);
+
+  /* Motion */
+  --fz-ease: cubic-bezier(.2, .7, .2, 1);
+  --fz-fast: 120ms; --fz-base: 180ms; --fz-slow: 280ms;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fz-bg: #131416; --fz-surface: #1b1c1f; --fz-fg: #ececee; --fz-mute: #9a9da4;
+    --fz-line: #2a2c30; --fz-field: #1b1c1f; --fz-mist: #2a2c30; --fz-graphite: #ececee;
+    --fz-primary: #8ea2ff; --fz-primary-top: #a3b3ff; --fz-primary-hover: #a3b3ff; --fz-primary-press: #7a8ff0;
+    --fz-on-primary: #131416; --fz-primary-tint: #1f2540; --fz-focus: #8ea2ff;
+    --fz-success-ink: #6fd09a; --fz-success-tint: #17261e;
+    --fz-danger-ink: #f08a8a;  --fz-danger-tint: #2b1a1a;
+    --fz-warning-ink: #f0b866; --fz-warning-tint: #2a2214;
+    --fz-info-ink: #8fb6f0;    --fz-info-tint: #172234;
+    --fz-shadow-1: 0 1px 2px rgba(0, 0, 0, .4); --fz-shadow-2: 0 12px 28px rgba(0, 0, 0, .5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fz-bg: #131416; --fz-surface: #1b1c1f; --fz-fg: #ececee; --fz-mute: #9a9da4;
+  --fz-line: #2a2c30; --fz-field: #1b1c1f; --fz-mist: #2a2c30; --fz-graphite: #ececee;
+  --fz-primary: #8ea2ff; --fz-primary-top: #a3b3ff; --fz-primary-hover: #a3b3ff; --fz-primary-press: #7a8ff0;
+  --fz-on-primary: #131416; --fz-primary-tint: #1f2540; --fz-focus: #8ea2ff;
+  --fz-success-ink: #6fd09a; --fz-success-tint: #17261e;
+  --fz-danger-ink: #f08a8a;  --fz-danger-tint: #2b1a1a;
+  --fz-warning-ink: #f0b866; --fz-warning-tint: #2a2214;
+  --fz-info-ink: #8fb6f0;    --fz-info-tint: #172234;
+  --fz-shadow-1: 0 1px 2px rgba(0, 0, 0, .4); --fz-shadow-2: 0 12px 28px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --fz-fast: 0ms; --fz-base: 0ms; --fz-slow: 0ms; }
+}
+
+/* Faiz UI/UX Brand Guide: components (v1.0). Requires tokens.css. */
+.fz-btn { font: 500 var(--fz-text-sm)/1 var(--fz-font-body); display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: var(--fz-r-md); border: 1px solid transparent; cursor: pointer; text-decoration: none; transition: transform var(--fz-base) var(--fz-ease), background var(--fz-base), box-shadow var(--fz-base); }
+.fz-btn:active { transform: translateY(1px); }
+.fz-btn:focus-visible { outline: 2px solid var(--fz-focus); outline-offset: 2px; }
+.fz-btn[disabled] { opacity: .45; cursor: not-allowed; transform: none; }
+.fz-btn-primary { color: var(--fz-on-primary); background: linear-gradient(180deg, var(--fz-primary-top), var(--fz-primary)); box-shadow: var(--fz-shine), var(--fz-shadow-1); }
+.fz-btn-primary:hover:not([disabled]) { background: var(--fz-primary-hover); }
+.fz-btn-secondary { color: var(--fz-fg); background: var(--fz-surface); border-color: var(--fz-line); box-shadow: var(--fz-shadow-1); }
+.fz-btn-secondary:hover:not([disabled]) { background: var(--fz-mist); }
+.fz-btn-ghost { color: var(--fz-fg); background: transparent; }
+.fz-btn-ghost:hover:not([disabled]) { background: var(--fz-mist); }
+.fz-btn-danger { color: #fff; background: linear-gradient(180deg, #c43c3c, #b83232); box-shadow: var(--fz-shine), var(--fz-shadow-1); }
+.fz-btn-danger:hover:not([disabled]) { background: #a52b2b; }
+.fz-btn-sm { height: 32px; padding: 0 12px; }
+.fz-btn-lg { height: 48px; padding: 0 24px; font-size: var(--fz-text-md); }
+.fz-btn-icon { width: 40px; padding: 0; }
+
+.fz-label { display: block; font: 500 13px var(--fz-font-body); margin-bottom: 6px; }
+.fz-input, .fz-select { width: 100%; height: 40px; font: inherit; color: var(--fz-fg); background: var(--fz-field); border: 1px solid var(--fz-line); border-radius: var(--fz-r-md); padding: 0 12px; transition: border-color var(--fz-fast); }
+.fz-input::placeholder { color: var(--fz-mute); }
+.fz-input:hover, .fz-select:hover { border-color: var(--fz-mute); }
+.fz-input:focus-visible, .fz-select:focus-visible { outline: 2px solid var(--fz-focus); outline-offset: 1px; border-color: var(--fz-focus); }
+.fz-input[aria-invalid="true"] { border-color: var(--fz-danger-ink); }
+.fz-hint { font-size: var(--fz-text-xs); color: var(--fz-mute); margin: 6px 0 0; }
+.fz-hint.fz-err { color: var(--fz-danger-ink); }
+.fz-check { display: flex; align-items: center; gap: 10px; font-size: var(--fz-text-sm); cursor: pointer; }
+.fz-check input { width: 18px; height: 18px; margin: 0; accent-color: var(--fz-primary); }
+.fz-range { width: 100%; accent-color: var(--fz-primary); }
+.fz-switch { position: relative; flex: none; width: 44px; height: 26px; border: 0; border-radius: var(--fz-r-pill); background: var(--fz-line); cursor: pointer; transition: background var(--fz-base); }
+.fz-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .3); transition: transform var(--fz-base) var(--fz-ease); }
+.fz-switch[aria-checked="true"] { background: var(--fz-primary); }
+.fz-switch[aria-checked="true"]::after { transform: translateX(18px); }
+.fz-switch:focus-visible { outline: 2px solid var(--fz-focus); outline-offset: 2px; }
+
+.fz-badge { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px; border-radius: var(--fz-r-pill); font: 500 var(--fz-text-xs)/1 var(--fz-font-body); background: var(--fz-mist); color: var(--fz-fg); }
+.fz-badge-primary { background: var(--fz-primary-tint); color: var(--fz-primary); }
+.fz-badge-success { background: var(--fz-success-tint); color: var(--fz-success-ink); }
+.fz-badge-danger { background: var(--fz-danger-tint); color: var(--fz-danger-ink); }
+.fz-badge-warning { background: var(--fz-warning-tint); color: var(--fz-warning-ink); }
+.fz-badge-info { background: var(--fz-info-tint); color: var(--fz-info-ink); }
+
+.fz-alert { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: var(--fz-r-lg); border: 1px solid var(--fz-line); background: var(--fz-surface); font-size: var(--fz-text-sm); line-height: 1.45; }
+.fz-alert strong { display: block; font-weight: 500; }
+.fz-alert > svg { flex: none; }
+.fz-alert-success { background: var(--fz-success-tint); } .fz-alert-success strong { color: var(--fz-success-ink); }
+.fz-alert-danger { background: var(--fz-danger-tint); } .fz-alert-danger strong { color: var(--fz-danger-ink); }
+.fz-alert-warning { background: var(--fz-warning-tint); } .fz-alert-warning strong { color: var(--fz-warning-ink); }
+.fz-alert-info { background: var(--fz-info-tint); } .fz-alert-info strong { color: var(--fz-info-ink); }
+
+.fz-card { background: var(--fz-surface); border: 1px solid var(--fz-line); border-radius: var(--fz-r-lg); padding: 20px; box-shadow: var(--fz-shadow-1); }
+.fz-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--fz-line); }
+.fz-tab { font: 500 var(--fz-text-sm) var(--fz-font-body); padding: 10px 14px; background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; color: var(--fz-mute); cursor: pointer; }
+.fz-tab:hover { color: var(--fz-fg); }
+.fz-tab[aria-selected="true"] { color: var(--fz-fg); border-color: var(--fz-primary); }
+.fz-tab:focus-visible { outline: 2px solid var(--fz-focus); outline-offset: -2px; border-radius: var(--fz-r-sm); }
+.fz-toast { display: inline-flex; align-items: center; gap: 8px; background: var(--fz-fg); color: var(--fz-bg); padding: 10px 16px; border-radius: var(--fz-r-pill); font-size: 13px; box-shadow: var(--fz-shadow-2); }
+.fz-skel { border-radius: var(--fz-r-sm); background: linear-gradient(90deg, var(--fz-mist), var(--fz-line), var(--fz-mist)); background-size: 200% 100%; animation: fz-shimmer 1.4s linear infinite; }
+@keyframes fz-shimmer { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .fz-skel { animation: none; } .fz-btn { transition: none; } }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; background: var(--fz-bg); color: var(--fz-fg); font: 16px/1.6 var(--fz-font-body); }
+h1, h2, h3 { font-family: var(--fz-font-display); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; margin: 0; text-wrap: balance; }
+h2 { font-size: var(--fz-text-2xl); }
+h3 { font-size: var(--fz-text-lg); letter-spacing: -.01em; margin: 40px 0 12px; }
+p { margin: 0 0 12px; max-width: 68ch; }
+.mute, .lead { color: var(--fz-mute); }
+.lead { font-size: var(--fz-text-md); margin: 12px 0 0; }
+code { font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--fz-mute); }
+a { color: var(--fz-primary); }
+:focus-visible { outline: 2px solid var(--fz-focus); outline-offset: 2px; border-radius: 6px; }
+
+.side { position: fixed; inset: 0 auto 0 0; width: 232px; padding: 24px 14px; border-right: 1px solid var(--fz-line); background: var(--fz-bg); overflow: auto; z-index: 5; display: flex; flex-direction: column; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 600 17px var(--fz-font-display); letter-spacing: -.01em; padding: 0 8px; }
+.mark { width: 32px; height: 32px; border-radius: 10px; background: var(--fz-grad-deep); color: #eceef0; display: grid; place-items: center; font: 600 18px var(--fz-font-display); box-shadow: var(--fz-shine), var(--fz-shadow-icon); }
+.side nav { display: flex; flex-direction: column; gap: 2px; }
+.side nav a { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: var(--fz-r-md); color: var(--fz-mute); text-decoration: none; font-size: 14px; }
+.side nav a:hover { background: var(--fz-mist); color: var(--fz-fg); }
+.side nav a.on { background: var(--fz-mist); color: var(--fz-fg); font-weight: 500; }
+.side .fz-btn { margin-top: auto; }
+main { margin-left: 232px; padding: 64px 48px 120px; }
+.in { max-width: 900px; }
+section { padding-top: 88px; }
+section:first-of-type { padding-top: 0; }
+@media (max-width: 900px) {
+  .side { position: sticky; width: auto; inset: 0 0 auto 0; flex-direction: row; align-items: center; padding: 10px 16px; border-right: 0; border-bottom: 1px solid var(--fz-line); gap: 12px; }
+  .side nav { flex-direction: row; overflow-x: auto; gap: 2px; }
+  .side nav a { white-space: nowrap; } .side nav a svg { display: none; }
+  .side .fz-btn { margin: 0; flex: none; }
+  main { margin: 0; padding: 40px 16px 96px; }
+  section { padding-top: 64px; }
+}
+
+span[data-ic] { flex: none; display: inline-flex; }
+.hero h1 { font-size: clamp(44px, 8vw, 84px); letter-spacing: -.035em; line-height: .98; }
+.hero .lead { font-size: 19px; max-width: 54ch; margin-top: 20px; }
+.strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; margin-top: 40px; max-width: 760px; }
+.strip span { display: grid; place-items: center; padding: 14px 0; border-radius: var(--fz-r-lg); transition: transform var(--fz-base) var(--fz-ease); }
+.strip span:hover { transform: translateY(-4px); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.grid2 > div > h3, .grid2 .fz-card > h3 { margin-top: 0; }
+.pr { display: flex; gap: 14px; align-items: flex-start; }
+.pr b { display: block; font: 600 17px var(--fz-font-display); margin-bottom: 2px; }
+.pr p { color: var(--fz-mute); margin: 0; font-size: 15px; }
+.sws { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 16px 14px; }
+.sw { display: flex; flex-direction: column; gap: 1px; font-size: 13.5px; min-width: 0; }
+.sw .chip { height: 64px; border-radius: var(--fz-r-md); border: 1px solid var(--fz-line); margin-bottom: 8px; box-shadow: var(--fz-shine); }
+.sw b { font-weight: 500; } .sw span { color: var(--fz-mute); font-size: 12.5px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--fz-line); vertical-align: baseline; }
+th { font-weight: 500; color: var(--fz-mute); }
+.tw { overflow-x: auto; }
+.spec { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.spec .big { font-size: 96px; line-height: 1; margin-bottom: 16px; }
+.ts { display: grid; grid-template-columns: 120px 1fr; gap: 4px 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--fz-line); }
+.ts small { color: var(--fz-mute); font-size: 12.5px; line-height: 1.4; }
+.ts > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 640px) { .ts { grid-template-columns: 1fr; } }
+.bar { display: flex; align-items: center; gap: 14px; font-size: 13.5px; padding: 3px 0; }
+.bar i { display: block; height: 16px; background: var(--fz-primary); border-radius: 4px; opacity: .85; }
+.bar code { width: 96px; flex: none; }
+.rad { display: flex; flex-wrap: wrap; gap: 16px; }
+.rad div { width: 92px; height: 68px; border: 1.5px solid var(--fz-fg); display: grid; place-items: center; font-size: 12.5px; background: var(--fz-surface); }
+.elev { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+.elev div { height: 84px; border-radius: var(--fz-r-lg); background: var(--fz-surface); display: grid; place-items: center; font-size: 13px; border: 1px solid var(--fz-line); }
+.cols { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; height: 56px; }
+.cols i { background: var(--fz-primary-tint); border-radius: 4px; border: 1px solid var(--fz-primary); opacity: .9; }
+
+.demo { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.stack { display: grid; gap: 14px; }
+.sizes { display: flex; align-items: flex-end; gap: 28px; flex-wrap: wrap; }
+.sizes div { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12.5px; color: var(--fz-mute); }
+.meaning { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.meaning .fz-card { display: flex; gap: 14px; align-items: center; padding: 16px; }
+.meaning .pair { display: flex; gap: 4px; }
+.meaning b { font-weight: 500; display: block; } .meaning span { font-size: 13.5px; color: var(--fz-mute); line-height: 1.35; display: block; }
+.dd { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.dd ul { margin: 0; padding-left: 20px; font-size: 15px; } .dd li { margin: 6px 0; }
+.dd .fz-card h3 { margin: 0 0 8px; display: flex; align-items: center; gap: 10px; }
+.find { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+.find .fz-input { max-width: 280px; }
+.lib h3 { margin: 32px 0 0; display: flex; align-items: baseline; gap: 10px; }
+.lib h3 small { font: 400 12.5px var(--fz-font-body); color: var(--fz-mute); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 6px 4px; padding-top: 10px; }
+.tile { appearance: none; background: none; border: 0; color: inherit; font: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 14px 2px 10px; border-radius: var(--fz-r-lg); transition: transform var(--fz-base) var(--fz-ease); }
+.tile:hover { transform: translateY(-3px); }
+.tile span { font-size: 12.5px; text-align: center; line-height: 1.3; }
+.tile[hidden], .lib section[hidden], [hidden] { display: none !important; }
+
+.shell { display: grid; grid-template-columns: 90px 1fr; grid-template-rows: 34px 1fr; gap: 8px; height: 250px; font-size: 12.5px; color: var(--fz-mute); }
+.shell > div { border: 1.5px dashed var(--fz-line); border-radius: var(--fz-r-md); display: grid; place-items: center; text-align: center; padding: 4px; }
+.shell .sb { grid-row: 1 / 3; background: var(--fz-mist); } .shell .tb { background: var(--fz-mist); }
+.shell .ct { border-style: solid; background: var(--fz-surface); }
+.tabbar { display: flex; justify-content: space-around; max-width: 360px; padding: 10px 8px 8px; background: var(--fz-surface); border: 1px solid var(--fz-line); border-radius: var(--fz-r-xl); box-shadow: var(--fz-shadow-1); }
+.tabbar div { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 12px; color: var(--fz-mute); }
+.tabbar .on { color: var(--fz-fg); font-weight: 500; }
+.state { display: flex; flex-direction: column; gap: 10px; min-height: 190px; }
+.state h3 { margin: 0; font-size: 15px; font-family: var(--fz-font-body); letter-spacing: 0; font-weight: 500; color: var(--fz-mute); }
+.empty { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 4px; }
+.empty b { font: 600 17px var(--fz-font-display); } .empty p { color: var(--fz-mute); font-size: 14px; margin: 0 0 6px; }
+.pair2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.pair2 div { padding: 12px 14px; border-radius: var(--fz-r-md); font-size: 14.5px; line-height: 1.4; }
+.pair2 .yes { background: var(--fz-success-tint); } .pair2 .no { background: var(--fz-danger-tint); }
+.pair2 small { display: block; font-weight: 500; margin-bottom: 2px; }
+.pair2 .yes small { color: var(--fz-success-ink); } .pair2 .no small { color: var(--fz-danger-ink); }
+@media (max-width: 560px) { .pair2 { grid-template-columns: 1fr; } }
+pre { margin: 0 0 14px; padding: 14px 16px; background: var(--fz-surface); border: 1px solid var(--fz-line); border-radius: var(--fz-r-md); overflow-x: auto; font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translate(-50%, 12px); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 9; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="defs"></defs></svg>
+
+<aside class="side">
+  <div class="brand"><span class="mark">F</span>Faiz</div>
+  <nav aria-label="Guide sections" id="nav"></nav>
+  <button class="fz-btn fz-btn-secondary fz-btn-sm" id="theme" type="button" data-ic="Dark Mode" data-s="20">Theme</button>
+</aside>
+
+<main><div class="in">
+
+<section id="overview" class="hero">
+  <h1>Faiz UI/UX<br>Brand Guide</h1>
+  <p class="lead">One visual language for every Faiz project. Soft frosted icons, a graphite and blue palette, and a calm, plain-spoken interface that behaves the same on every screen.</p>
+  <div class="strip" id="strip"></div>
+  <div class="facts"><span class="fz-badge fz-badge-primary">Version 1.0</span><span class="fz-badge" id="count"></span><span class="fz-badge">Light and dark</span><span class="fz-badge">Open for public use</span></div>
+</section>
+
+<section id="principles">
+  <h2>Principles</h2>
+  <p class="lead">Four rules decide every design call. When two options both look fine, pick the one that follows these more closely.</p>
+  <div class="grid2" style="margin-top:28px;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))">
+    <div class="pr"><span data-ic="Layers" data-s="44"></span><div><b>Soft, not loud</b><p>Frosted graphite surfaces and generous space carry the interface. Nothing shouts.</p></div></div>
+    <div class="pr"><span data-ic="Palette" data-s="44"></span><div><b>Colour means something</b><p>Green confirms, red warns of loss, blue guides, yellow asks for attention. Never decoration.</p></div></div>
+    <div class="pr"><span data-ic="Comment" data-s="44"></span><div><b>Plain and direct</b><p>Short sentence-case labels, active verbs and one clear next step on every screen.</p></div></div>
+    <div class="pr"><span data-ic="Puzzle" data-s="44"></span><div><b>The same everywhere</b><p>One token set, one icon family and one voice across web, mobile and documentation.</p></div></div>
+  </div>
+</section>
+
+<section id="colour">
+  <h2>Colour</h2>
+  <p class="lead">A quiet graphite base, one blue for action, and a set of status and accent colours taken straight from the icon gradients.</p>
+  <h3>Neutrals</h3><div class="sws" id="sw-neutral"></div>
+  <h3>Brand action</h3><div class="sws" id="sw-brand"></div>
+  <p class="mute" style="margin-top:14px">Blue is the only colour used for primary buttons, links, selected states and focus. One primary button per view.</p>
+  <h3>Status</h3><div class="sws" id="sw-status"></div>
+  <p class="mute" style="margin-top:14px">Each status has three roles: the base for icons and fills, the ink for text, and the tint for backgrounds. Never set text in the base colour.</p>
+  <h3>Icon accents</h3><div class="sws" id="sw-accent"></div>
+  <p class="mute" style="margin-top:14px">Accents appear mostly inside icons. In interface chrome use them sparingly, for charts, tags and illustrations.</p>
+  <h3>Contrast checks</h3>
+  <div class="tw"><table><thead><tr><th>Pair</th><th>Ratio</th><th>Result</th></tr></thead><tbody id="contrast"></tbody></table></div>
+  <p class="mute" style="margin-top:12px">Base status colours such as green #2f9e5b on white reach only 3.4:1. Use them for icons and large fills, and use the ink variants for any text.</p>
+</section>
+
+<section id="typography">
+  <h2>Typography</h2>
+  <p class="lead">Two families with clearly different jobs: Bricolage Grotesque gives headings their character, DM Sans keeps everything else easy to read.</p>
+  <div class="spec" style="margin-top:28px">
+    <div class="fz-card"><div class="big" style="font-family:var(--fz-font-display);font-weight:600;letter-spacing:-.03em">Aa</div><b style="font:600 20px var(--fz-font-display)">Bricolage Grotesque</b><p class="mute" style="margin:4px 0 0">Display and headings. Weight 600 only, tracking -2% on large sizes. Fallback: Segoe UI, system-ui.</p></div>
+    <div class="fz-card"><div class="big" style="font-family:var(--fz-font-body)">Aa</div><b style="font:500 20px var(--fz-font-body)">DM Sans</b><p class="mute" style="margin:4px 0 0">Body, labels, buttons and data. Weights 400 and 500. Use tabular numbers for tables and prices.</p></div>
+  </div>
+  <h3>Type scale</h3><div id="scale"></div>
+  <h3>Rules</h3>
+  <p>Keep lines under 70 characters. Use sentence case everywhere, including buttons and headings. Use weight, size and space for hierarchy before reaching for colour. Never underline anything that is not a link.</p>
+</section>
+
+<section id="layout">
+  <h2>Layout and shape</h2>
+  <p class="lead">A 4 px spacing base, three breakpoints, and soft corners that echo the rounded icon buttons.</p>
+  <h3>Grid</h3>
+  <div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="tw" style="margin-top:14px"><table><thead><tr><th>Breakpoint</th><th>Columns</th><th>Gutter</th><th>Margin</th></tr></thead><tbody>
+    <tr><td>Under 560 px</td><td>4</td><td>12 px</td><td>16 px</td></tr>
+    <tr><td>560 to 899 px</td><td>8</td><td>16 px</td><td>24 px</td></tr>
+    <tr><td>900 px and up</td><td>12, content max 1120 px</td><td>24 px</td><td>32 px</td></tr></tbody></table></div>
+  <h3>Spacing</h3><div id="space"></div>
+  <h3>Radius</h3><div class="rad" id="rad"></div>
+  <h3>Elevation</h3>
+  <div class="elev"><div style="box-shadow:var(--fz-shadow-1)">Resting card</div><div style="box-shadow:var(--fz-shadow-2)">Menu, dialog</div><div style="box-shadow:var(--fz-shadow-icon);border-radius:var(--fz-r-pill)">Icon lift</div></div>
+  <h3>Motion</h3>
+  <p>Motion answers an action and never decorates. Hover lifts icons and tiles 3 px over 180 ms. Pressed buttons move down 1 px. Panels and menus open over 280 ms with the standard ease <code>cubic-bezier(.2, .7, .2, 1)</code>. Only loading states may repeat. Everything stops when the system asks for reduced motion.</p>
+</section>
+
+<section id="icons">
+  <h2>Icons</h2>
+  <p class="lead">The Faiz icon family: <span id="count2"></span> soft frosted icons on a 64 px grid, lit from the top with a graphite gradient and a gentle drop shadow.</p>
+  <h3>Anatomy</h3>
+  <p>Fills use a vertical gradient from light to deep. Strokes are graphite #25272a with round caps and joins, 2.5 to 5 units thick. A 0.45 blur on the fill gives the frosted edge, and a soft shadow lifts each icon 3.5 units off the page. Neutral graphite is the default. Colour is added only for meaning.</p>
+  <h3>Colour carries meaning</h3>
+  <div class="meaning">
+    <div class="fz-card"><div class="pair" data-pair="Add,Check"></div><div><b>Green</b><span>Create, confirm, secure</span></div></div>
+    <div class="fz-card"><div class="pair" data-pair="Delete,Close"></div><div><b>Red</b><span>Remove, stop, destructive</span></div></div>
+    <div class="fz-card"><div class="pair" data-pair="Upload,Messages"></div><div><b>Blue</b><span>Transfer, inform, talk</span></div></div>
+    <div class="fz-card"><div class="pair" data-pair="Folder,Favorite"></div><div><b>Yellow and amber</b><span>Attention, saved, special</span></div></div>
+  </div>
+  <h3>Sizes</h3>
+  <div class="sizes" id="sizes"></div>
+  <p class="mute" style="margin-top:12px">Filled buttons stay text-only so coloured icons never fight the fill. Never go below 20 px, where the frost blur starts to swallow detail. Use 24 px beside text, 32 px in navigation and toolbars, 48 px on cards, and 64 px for empty states and features.</p>
+  <h3>Do and don't</h3>
+  <div class="dd">
+    <div class="fz-card"><h3><span data-ic="Success" data-s="24"></span>Do</h3><ul><li>Pair icons with a text label unless the meaning is universal, such as Close or Search.</li><li>Keep one icon per meaning across the whole product.</li><li>Add an accessible name to icon-only buttons.</li><li>Leave at least 8 px of space around every icon.</li><li>In dark themes, set graphite icons on a Mist tile, because their ink is dark.</li></ul></div>
+    <div class="fz-card"><h3><span data-ic="Error" data-s="24"></span>Don't</h3><ul><li>Recolour icons with CSS fill or filters. Pick the tinted version instead.</li><li>Stretch, rotate or add your own outlines and shadows.</li><li>Mix them with flat or outline icon sets.</li><li>Place two differently coloured icons side by side to mean the same thing.</li></ul></div>
+  </div>
+  <h3>Icon library</h3>
+  <div class="find"><input class="fz-input" id="q" type="search" placeholder="Filter icons" aria-label="Filter icons" autocomplete="off"><span class="mute">Select any icon to copy it as SVG. Every icon is also saved in the <code>icons/</code> folder.</span></div>
+  <div class="lib" id="lib"><p class="mute" id="none" hidden>No icon matches that name.</p></div>
+</section>
+
+<section id="components">
+  <h2>Components</h2>
+  <p class="lead">Everything here is live and uses the classes in <code>components.css</code>.</p>
+  <h3>Buttons</h3>
+  <div class="demo">
+    <button class="fz-btn fz-btn-primary" type="button">Save changes</button>
+    <button class="fz-btn fz-btn-secondary" type="button" data-ic="Download" data-s="20">Download</button>
+    <button class="fz-btn fz-btn-ghost" type="button">Cancel</button>
+    <button class="fz-btn fz-btn-danger" type="button">Delete project</button>
+    <button class="fz-btn fz-btn-primary" type="button" disabled>Disabled</button>
+    <button class="fz-btn fz-btn-secondary fz-btn-icon" type="button" aria-label="Settings" data-ic="Settings" data-s="24"></button>
+  </div>
+  <div class="demo" style="margin-top:12px"><button class="fz-btn fz-btn-primary fz-btn-sm" type="button">Small 32</button><button class="fz-btn fz-btn-primary" type="button">Default 40</button><button class="fz-btn fz-btn-primary fz-btn-lg" type="button">Large 48</button></div>
+  <h3>Form controls</h3>
+  <div class="grid2">
+    <div class="stack">
+      <div><label class="fz-label" for="d1">Project name</label><input class="fz-input" id="d1" placeholder="Faiz dashboard"><p class="fz-hint">Shown to everyone on your team.</p></div>
+      <div><label class="fz-label" for="d2">Email</label><input class="fz-input" id="d2" value="faiz@" aria-invalid="true" aria-describedby="d2h"><p class="fz-hint fz-err" id="d2h">Add the part after the @, for example faiz@example.com.</p></div>
+      <div><label class="fz-label" for="d3">Role</label><select class="fz-select" id="d3"><option>Designer</option><option>Developer</option></select></div>
+    </div>
+    <div class="stack">
+      <label class="fz-check"><input type="checkbox" checked> Email me weekly reports</label>
+      <label class="fz-check"><input type="radio" name="r" checked> Light theme</label>
+      <label class="fz-check"><input type="radio" name="r"> Dark theme</label>
+      <div class="demo" style="flex-wrap:nowrap"><button class="fz-switch" role="switch" aria-checked="true" aria-label="Notifications"></button><span>Notifications</span></div>
+      <div><label class="fz-label" for="d4">Volume</label><input class="fz-range" id="d4" type="range" value="60"></div>
+    </div>
+  </div>
+  <h3>Badges</h3>
+  <div class="demo"><span class="fz-badge">Draft</span><span class="fz-badge fz-badge-primary">New</span><span class="fz-badge fz-badge-success">Published</span><span class="fz-badge fz-badge-warning">Needs review</span><span class="fz-badge fz-badge-danger">Failed</span><span class="fz-badge fz-badge-info">Syncing</span></div>
+  <h3>Alerts</h3>
+  <div class="stack">
+    <div class="fz-alert fz-alert-success"><span data-ic="Success" data-s="28"></span><div><strong>Project published</strong>Your changes are live for everyone.</div></div>
+    <div class="fz-alert fz-alert-warning"><span data-ic="Warning" data-s="28"></span><div><strong>Storage is almost full</strong>You have used 92% of your space. Remove old files or upgrade your plan.</div></div>
+    <div class="fz-alert fz-alert-danger"><span data-ic="Error" data-s="28"></span><div><strong>Couldn't upload logo.png</strong>Files must be under 5 MB. Compress the image and try again.</div></div>
+    <div class="fz-alert fz-alert-info"><span data-ic="Info" data-s="28"></span><div><strong>New sync schedule</strong>Data now refreshes every 15 minutes.</div></div>
+  </div>
+  <h3>Cards, tabs and toast</h3>
+  <div class="grid2">
+    <div class="fz-card"><div class="fz-tabs" role="tablist" id="tabs"><button class="fz-tab" role="tab" aria-selected="true">Overview</button><button class="fz-tab" role="tab" aria-selected="false">Activity</button><button class="fz-tab" role="tab" aria-selected="false">Members</button></div><p id="tabtxt" style="margin:16px 0 0">Everything about this project in one place.</p></div>
+    <div class="fz-card" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start"><span class="fz-toast"><span data-ic="Success" data-s="20"></span>Saved</span><button class="fz-btn fz-btn-secondary" id="toastbtn" type="button">Show a toast</button></div>
+  </div>
+</section>
+
+<section id="ux">
+  <h2>UX structure</h2>
+  <p class="lead">Screens follow one skeleton so people never have to relearn where things live.</p>
+  <h3>App shell</h3>
+  <div class="shell"><div class="sb">Sidebar<br>240 px</div><div class="tb">Top bar 56 px: page title, search, account</div><div class="ct">Content area<br>Page title and the one primary action sit top right. Filters come next, then content.</div></div>
+  <p class="mute" style="margin-top:12px">The sidebar holds at most seven destinations, each with an icon and a label. Settings and account sit at the bottom.</p>
+  <h3>Mobile navigation</h3>
+  <div class="tabbar" id="tabbar"></div>
+  <p class="mute" style="margin-top:12px">Five destinations at most. Anything else goes under More.</p>
+  <h3>Every screen has four states</h3>
+  <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr))">
+    <div class="fz-card state"><h3>Loading</h3><div class="fz-skel" style="height:18px;width:60%"></div><div class="fz-skel" style="height:12px"></div><div class="fz-skel" style="height:12px;width:80%"></div><p class="fz-hint">Show the layout shape, not a spinner, when the wait is over a second.</p></div>
+    <div class="fz-card state"><h3>Empty</h3><div class="empty"><span data-ic="Folder" data-s="64"></span><b>No projects yet</b><p>Create a project to start collecting files.</p><button class="fz-btn fz-btn-primary fz-btn-sm" type="button">New project</button></div></div>
+    <div class="fz-card state"><h3>Error</h3><div class="fz-alert fz-alert-danger"><span data-ic="Error" data-s="28"></span><div><strong>Couldn't save changes</strong>You're offline. Reconnect and select Save again.</div></div></div>
+    <div class="fz-card state"><h3>Success</h3><div><span class="fz-toast"><span data-ic="Success" data-s="20"></span>Changes saved</span></div><p class="fz-hint">Confirm every action where it happened, and use the same verb as the button.</p></div>
+  </div>
+  <h3>Forms</h3>
+  <p>Labels sit above fields and never disappear. Mark optional fields, not required ones. Validate when the person leaves a field, not while typing. Put the primary button at the end, aligned left on mobile and right on desktop, and keep Cancel beside it as a ghost button.</p>
+  <h3>Writing</h3>
+  <p>Write for the person using the product, not for the system underneath. Use sentence case, active verbs and the same name for an action from button to confirmation. Errors say what happened and how to fix it, and never apologise.</p>
+  <div class="pair2"><div class="yes"><small>Do</small>Save changes</div><div class="no"><small>Don't</small>Submit</div><div class="yes"><small>Do</small>Couldn't upload logo.png. Files must be under 5 MB.</div><div class="no"><small>Don't</small>Oops! Something went wrong.</div></div>
+</section>
+
+<section id="access">
+  <h2>Accessibility</h2>
+  <p class="lead">Accessible by default, to WCAG 2.2 AA.</p>
+  <div class="tw" style="margin-top:20px"><table><tbody>
+    <tr><th>Contrast</th><td>Text needs 4.5:1, large text and icon boundaries 3:1. Use the ink tokens for status text.</td></tr>
+    <tr><th>Focus</th><td>Every interactive element shows a 2 px ring in the focus colour with a 2 px offset. Never remove it.</td></tr>
+    <tr><th>Targets</th><td>At least 40 px on desktop and 44 px on touch.</td></tr>
+    <tr><th>Icons</th><td>Decorative icons are hidden from screen readers. Icon-only buttons carry an accessible name.</td></tr>
+    <tr><th>Colour</th><td>Never use colour alone. Status always pairs an icon with text.</td></tr>
+    <tr><th>Motion</th><td>Honour reduced motion. The tokens already set durations to zero.</td></tr>
+    <tr><th>Themes</th><td>Light and dark both ship with the tokens and follow the system setting.</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="use">
+  <h2>Use it in your projects</h2>
+  <p class="lead">Clone the repository, or link the files straight from GitHub. Replace <code>USERNAME</code> with your GitHub name.</p>
+  <h3>Repository</h3>
+<pre>faiz-brand-guide/
+  index.html        this guide
+  tokens.css        colour, type, space, radius, shadow, motion
+  tokens.json       the same tokens for Figma and build tools
+  components.css    buttons, fields, badges, alerts, cards, tabs
+  icons/            every icon as a standalone SVG
+  icons.json        icon names and groups</pre>
+  <h3>Add the styles</h3>
+<pre>&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&amp;family=DM+Sans:wght@400;500&amp;display=swap"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/USERNAME/faiz-brand-guide@main/tokens.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/USERNAME/faiz-brand-guide@main/components.css"&gt;</pre>
+  <h3>Build with it</h3>
+<pre>&lt;body style="background:var(--fz-bg);color:var(--fz-fg);font-family:var(--fz-font-body)"&gt;
+  &lt;button class="fz-btn fz-btn-secondary"&gt;
+    &lt;img src="icons/download.svg" alt="" width="20" height="21"&gt; Download
+  &lt;/button&gt;
+&lt;/body&gt;</pre>
+  <p class="mute">Pin a release tag such as <code>@v1.0.0</code> instead of <code>@main</code> in production so updates never change a live product unexpectedly.</p>
+</section>
+
+</div></main>
+<div class="toast fz-toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const INK = '#25272a', LT = '#eceef0';
+let DEFS =
+  '<linearGradient id="gb" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="58"><stop offset="0" stop-color="#d0d3d7"/><stop offset=".55" stop-color="#90939a"/><stop offset="1" stop-color="#55585e"/></linearGradient>' +
+  '<linearGradient id="gd" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="58"><stop offset="0" stop-color="#8d9096"/><stop offset="1" stop-color="#2c2e32"/></linearGradient>' +
+  '<linearGradient id="gl" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="58"><stop offset="0" stop-color="#e0e2e5"/><stop offset="1" stop-color="#9ea1a7"/></linearGradient>' +
+  '<filter id="fz" filterUnits="userSpaceOnUse" x="-8" y="-8" width="80" height="80"><feGaussianBlur stdDeviation="0.45"/></filter>' +
+  '<filter id="sh" filterUnits="userSpaceOnUse" x="-12" y="-12" width="88" height="96"><feDropShadow dx="0" dy="3.5" stdDeviation="2.6" flood-color="#000" flood-opacity=".3"/></filter>';
+
+const PAL = {
+  gg: ['#a6e8bd', '#2f9e5b'], gr: ['#f6aaaa', '#d64545'], ga: ['#fbd596', '#e6962a'],
+  gbl: ['#acccf7', '#3b78d8'], go: ['#fbc496', '#e8702a'], gy: ['#fdea98', '#e8b923'],
+  gp: ['#cdbcf3', '#7a56d6'], gk: ['#f7b4cd', '#d6457f'], gt: ['#9ce3d9', '#1f9a8f']
+};
+Object.keys(PAL).forEach(k => {
+  DEFS += '<linearGradient id="' + k + '" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="58"><stop offset="0" stop-color="' + PAL[k][0] + '"/><stop offset="1" stop-color="' + PAL[k][1] + '"/></linearGradient>';
+});
+const B = (s, g = 'gb', x = '') => `<g fill="url(#${g})" ${x} filter="url(#fz)">${s}</g>`;
+const SOFT = 'stroke="url(#gd)" stroke-width="4" stroke-linejoin="round"';
+const S = (s, w = 3, c = INK, x = '') => `<g fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" ${x}>${s}</g>`;
+const F = (s, c = INK) => `<g fill="${c}">${s}</g>`;
+
+function gear(cx, cy, ro, ri, n) {
+  const p = [], s = 2 * Math.PI / n;
+  for (let i = 0; i < n; i++) {
+    [[ri, -.26], [ro, -.14], [ro, .14], [ri, .26]].forEach(([r, k]) => {
+      const t = i * s + k * s;
+      p.push((cx + r * Math.cos(t)).toFixed(1) + ',' + (cy + r * Math.sin(t)).toFixed(1));
+    });
+  }
+  return `<polygon points="${p.join(' ')}"/>`;
+}
+function star(cx, cy, ro, ri) {
+  const p = [];
+  for (let i = 0; i < 10; i++) {
+    const r = i % 2 ? ri : ro, t = -Math.PI / 2 + i * Math.PI / 5;
+    p.push((cx + r * Math.cos(t)).toFixed(1) + ',' + (cy + r * Math.sin(t)).toFixed(1));
+  }
+  return `<polygon points="${p.join(' ')}"/>`;
+}
+function rays() {
+  let d = '';
+  for (let i = 0; i < 8; i++) {
+    const t = i * Math.PI / 4, c = Math.cos(t), s = Math.sin(t);
+    d += `M${(32 + 19 * c).toFixed(1)} ${(32 + 19 * s).toFixed(1)}L${(32 + 26 * c).toFixed(1)} ${(32 + 26 * s).toFixed(1)}`;
+  }
+  return d;
+}
+function ring(g, rot) {
+  const arrow = `<path d="M14.3 28.9A18 18 0 0 1 41 16.4"/><polygon points="47,19.5 43.5,12.1 38.5,20.7" fill="${INK}"/>`;
+  return `<g transform="rotate(${rot} 32 32)">` +
+    `<g fill="none" stroke="url(#${g})" stroke-width="10" filter="url(#fz)"><circle cx="32" cy="32" r="18"/></g>` +
+    S(arrow, 4.5) + S(arrow, 4.5, INK, 'transform="rotate(180 32 32)"') + `</g>`;
+}
+const cloud = 'M17 50a12 12 0 0 1-1-24 16 16 0 0 1 31-2 13 13 0 0 1 1 26z';
+const btn = (sym, g = 'gd') => B('<rect x="8" y="8" width="48" height="48" rx="14"/>', g) + sym;
+const disc = (sym, g = 'gd') => B('<circle cx="32" cy="32" r="24"/>', g) + sym;
+const mount = 'M8 46l15-15 11 12 7-6 15 14v2a5 5 0 0 1-5 5H13a5 5 0 0 1-5-5z';
+
+const ICONS = [
+  ['Folder', B('<path d="M8 18a4 4 0 0 1 4-4h14l5 5h21a4 4 0 0 1 4 4v28H8z"/>', 'gd') + B('<rect x="8" y="24" width="48" height="30" rx="5"/>') + S('<path d="M13 26h38"/>', 2, '#e6e8ea')],
+  ['Home', B('<path d="M32 8L8 30h6v22a2 2 0 0 0 2 2h32a2 2 0 0 0 2-2V30h6z"/>') + F('<path d="M27 54V41a5 5 0 0 1 10 0v13z"/>')],
+  ['Apps', B('<rect x="10" y="10" width="20" height="20" rx="6"/><rect x="34" y="10" width="20" height="20" rx="6"/><rect x="10" y="34" width="20" height="20" rx="6"/><rect x="34" y="34" width="20" height="20" rx="6"/>', 'gd')],
+  ['Search', B('<circle cx="27" cy="27" r="17"/>', 'gl') + S('<circle cx="27" cy="27" r="17"/>', 5) + S('<path d="M40 40L55 55"/>', 7)],
+  ['Notifications', B('<path d="M32 8c-9 0-15 6-15 15v10l-5 8v3h40v-3l-5-8V23c0-9-6-15-15-15z"/>', 'gd') + F('<path d="M26 52a6 6 0 0 0 12 0z"/>') + F('<circle cx="32" cy="8" r="3"/>')],
+  ['Messages', B('<path d="M12 12h40a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6H31L19 55V44h-7a6 6 0 0 1-6-6V18a6 6 0 0 1 6-6z"/>', 'gl') + F('<circle cx="22" cy="28" r="3.2"/><circle cx="32" cy="28" r="3.2"/><circle cx="42" cy="28" r="3.2"/>', '#3a3d41')],
+  ['User', B('<circle cx="32" cy="20" r="11"/>', 'gd') + B('<path d="M11 55c0-12 8-20 21-20s21 8 21 20z"/>', 'gl')],
+  ['Team', B('<circle cx="19" cy="22" r="7"/>', 'gd') + B('<path d="M5 51c0-9 6-15 14-15s14 6 14 15z"/>', 'gl') + B('<circle cx="43" cy="20" r="9"/>', 'gd') + B('<path d="M24 55c0-11 8-18 19-18s19 7 19 18z"/>')],
+  ['Settings', B(gear(32, 32, 27, 20, 8), 'gd', SOFT) + B('<circle cx="32" cy="32" r="10"/>', 'gl') + S('<circle cx="32" cy="32" r="10"/>', 2.5, '#4a4d52')],
+  ['Filters', B('<rect x="6" y="12" width="52" height="40" rx="9"/>', 'gl') + S('<path d="M14 26h36M14 40h36"/>', 3) + F('<circle cx="38" cy="26" r="5.5"/><circle cx="26" cy="40" r="5.5"/>')],
+
+  ['Add', btn(S('<path d="M32 20v24M20 32h24"/>', 5, LT))],
+  ['Check', btn(S('<path d="M20 33l8 8 16-17"/>', 5, LT))],
+  ['Close', btn(S('<path d="M22 22l20 20M42 22L22 42"/>', 5, LT))],
+  ['Delete', B('<path d="M16 21h32l-3 33a3 3 0 0 1-3 3H22a3 3 0 0 1-3-3z"/>', 'gl') + F('<rect x="11" y="14" width="42" height="6" rx="3"/>') + S('<path d="M26 14v-3a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v3M26 28v20M32 28v20M38 28v20"/>', 2.6)],
+  ['Edit', B('<path d="M12 52l3-12L41 14l9 9L24 49z"/>') + B('<path d="M43 12l3-3a3.5 3.5 0 0 1 5 0l4 4a3.5 3.5 0 0 1 0 5l-3 3z"/>', 'gd') + F('<path d="M12 52l3-12 9 9z"/>')],
+  ['File', B('<path d="M16 8h22l12 12v32a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z"/>', 'gl') + F('<path d="M38 8l12 12H42a4 4 0 0 1-4-4z"/>') + S('<path d="M20 31h20M20 39h24M20 47h14"/>', 3, '#45484d')],
+  ['Bookmark', B('<path d="M16 8h32v48L32 44 16 56z"/>', 'gd', SOFT)],
+  ['Favorite', B(star(32, 34, 27, 12), 'gd', SOFT)],
+  ['Like', B('<path d="M32 55C12 41 8 29 8 22a13 13 0 0 1 24-6 13 13 0 0 1 24 6c0 7-4 19-24 33z"/>', 'gd')],
+  ['Share', S('<path d="M46 14L18 32l28 18"/>', 5) + B('<circle cx="46" cy="14" r="8"/><circle cx="18" cy="32" r="8"/><circle cx="46" cy="50" r="8"/>', 'gd')],
+
+  ['Upload', B(`<path d="${cloud}"/>`, 'gl') + S('<path d="M32 46V27M24 34l8-8 8 8"/>', 4.5)],
+  ['Download', B(`<path d="${cloud}"/>`, 'gl') + S('<path d="M32 26v19M24 38l8 8 8-8"/>', 4.5)],
+  ['Refresh', '<g fill="none" stroke="url(#gb)" stroke-width="10" stroke-linecap="round" filter="url(#fz)"><path d="M50 32a18 18 0 1 1-6-13.5"/></g>' + S('<path d="M50 32a18 18 0 1 1-6-13.5"/>', 4.5) + F('<polygon points="49.2,23.3 47.2,12.1 37.8,22.5"/>')],
+  ['Sync', btn(S('<path d="M17 25h28M37 16l9 9-9 9M47 40H19M27 31l-9 9 9 9"/>', 4.5, LT), 'gd')],
+  ['Link', `<g transform="rotate(-45 32 32)"><g fill="none" stroke="url(#gb)" stroke-width="8" filter="url(#fz)"><rect x="6" y="22" width="30" height="20" rx="10"/><rect x="28" y="22" width="30" height="20" rx="10"/></g>` + S('<rect x="6" y="22" width="30" height="20" rx="10"/><rect x="28" y="22" width="30" height="20" rx="10"/>', 2.4, INK, 'opacity=".7"') + `</g>`],
+  ['Unlink', `<g transform="rotate(-45 32 32)"><g fill="none" stroke="url(#gb)" stroke-width="8" filter="url(#fz)"><rect x="3" y="22" width="26" height="20" rx="10"/><rect x="35" y="22" width="26" height="20" rx="10"/></g>` + S('<rect x="3" y="22" width="26" height="20" rx="10"/><rect x="35" y="22" width="26" height="20" rx="10"/>', 2.4, INK, 'opacity=".7"') + `</g>` + S('<path d="M22 10l3 6M42 54l-3-6M12 22l6 3M52 42l-6-3"/>', 3.5)],
+  ['Security', B('<path d="M32 7l21 8v17c0 14-9 22-21 26C20 54 11 46 11 32V15z"/>', 'gb', SOFT.replace('gd', 'gb')) + S('<path d="M23 32l7 7 12-14"/>', 4.5, LT)],
+  ['Lock', S('<path d="M20 29V21a12 12 0 0 1 24 0v8"/>', 6) + B('<rect x="12" y="28" width="40" height="28" rx="9"/>', 'gd') + F('<circle cx="32" cy="42" r="3.6"/>', LT)],
+  ['Unlock', S('<path d="M20 29V21a12 12 0 0 1 23-4.5"/>', 6) + B('<rect x="12" y="28" width="40" height="28" rx="9"/>', 'gd') + F('<circle cx="32" cy="42" r="3.6"/>', LT)],
+  ['Key', S('<path d="M31 31L55 55M46 46l6-6M52 52l5-5"/>', 6) + B('<circle cx="22" cy="22" r="14"/>', 'gd') + F('<circle cx="19" cy="19" r="4.5"/>', '#d6d8db')],
+
+  ['Calendar', B('<rect x="8" y="12" width="48" height="44" rx="9"/>', 'gd') + B('<rect x="8" y="12" width="48" height="12" rx="6"/>', 'gl') + S('<path d="M20 7v10M44 7v10"/>', 5) + F('<circle cx="22" cy="36" r="3.2"/><circle cx="42" cy="36" r="3.2"/><circle cx="22" cy="47" r="3.2"/><circle cx="42" cy="47" r="3.2"/>', '#dfe1e3')],
+  ['Clock', disc(S('<path d="M30 17v17h14"/>', 4.5, LT))],
+  ['Timer', B('<path d="M20 11h24v8c0 6-6 10-9 13 3 3 9 7 9 13v8H20v-8c0-6 6-10 9-13-3-3-9-7-9-13z"/>', 'gl') + B('<path d="M24 54c2-6 6-8 8-10 2 2 6 4 8 10z"/>', 'gd') + F('<rect x="14" y="6" width="36" height="6" rx="3"/><rect x="14" y="52" width="36" height="6" rx="3"/>')],
+  ['Alarm', B('<circle cx="16" cy="15" r="8"/><circle cx="48" cy="15" r="8"/>', 'gd') + B('<circle cx="32" cy="35" r="21"/>', 'gd') + S('<path d="M32 22v14l9 5"/>', 4, LT) + S('<path d="M18 54l-4 5M46 54l4 5"/>', 4)],
+  ['Play', disc(F('<polygon points="27,20 46,32 27,44" stroke="#eceef0" stroke-width="3" stroke-linejoin="round"/>', LT))],
+  ['Pause', btn(F('<rect x="22" y="20" width="7" height="24" rx="3"/><rect x="35" y="20" width="7" height="24" rx="3"/>', LT))],
+  ['Stop', btn(F('<rect x="22" y="22" width="20" height="20" rx="4"/>', LT))],
+  ['Forward', disc(F('<polygon points="19,22 31,32 19,42"/><polygon points="31,22 43,32 31,42"/>', LT) + S('<path d="M19 22l12 10-12 10zM31 22l12 10-12 10z"/>', 2.5, LT))],
+  ['Rewind', disc(F('<polygon points="45,22 33,32 45,42"/><polygon points="33,22 21,32 33,42"/>', LT) + S('<path d="M45 22L33 32l12 10zM33 22L21 32l12 10z"/>', 2.5, LT))],
+  ['Video', B('<rect x="8" y="24" width="48" height="32" rx="7"/>', 'gl') + B('<rect x="8" y="11" width="48" height="13" rx="4"/>', 'gd') + S('<path d="M19 11l-5 13M31 11l-5 13M43 11l-5 13M55 11l-5 13"/>', 3, LT) + F('<polygon points="27,32 43,40 27,48" stroke="#25272a" stroke-width="2.5" stroke-linejoin="round"/>')],
+
+  ['Image', B('<rect x="8" y="12" width="48" height="40" rx="7"/>', 'gd') + F(`<path d="${mount}" transform="translate(0 -6)"/>`, '#e4e6e8') + F('<circle cx="21" cy="25" r="4.5"/>', '#e4e6e8')],
+  ['Gallery', B('<rect x="20" y="9" width="38" height="32" rx="7"/>', 'gd') + B('<rect x="6" y="22" width="38" height="32" rx="7"/>', 'gl') + F('<path d="M8 46l11-11 8 8 5-4 10 10v1a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z" transform="translate(0 -1)"/>', '#f1f2f3')],
+  ['Camera', B('<path d="M22 18l3-7h14l3 7z"/>', 'gd') + B('<rect x="6" y="18" width="52" height="37" rx="10"/>', 'gb') + B('<circle cx="32" cy="36" r="13"/>', 'gd') + F('<circle cx="32" cy="36" r="6.5"/>', '#dcdee0')],
+  ['Mic', B('<rect x="22" y="6" width="20" height="34" rx="10"/>', 'gl') + S('<rect x="22" y="6" width="20" height="34" rx="10"/>', 3.5) + S('<path d="M13 30a19 19 0 0 0 38 0M32 49v8M22 57h20"/>', 4)],
+  ['Volume', B('<path d="M8 24h10l15-13v42L18 40H8z"/>') + B('<path d="M41 22a14 14 0 0 1 0 20z"/>', 'gd')],
+  ['Mute', B('<path d="M8 24h10l15-13v42L18 40H8z"/>') + S('<path d="M42 24l14 16M56 24L42 40"/>', 4.5)],
+  ['Headphones', S('<path d="M10 40V32a22 22 0 0 1 44 0v8"/>', 6) + B('<rect x="7" y="34" width="14" height="22" rx="7"/><rect x="43" y="34" width="14" height="22" rx="7"/>')],
+  ['Music', F('<polygon points="26,10 52,5 52,17 26,22"/><rect x="26" y="10" width="5" height="36"/><rect x="47" y="5" width="5" height="35"/>') + B('<ellipse cx="20" cy="47" rx="10" ry="8"/><ellipse cx="42" cy="41" rx="10" ry="8"/>', 'gd')],
+  ['Analytics', B('<rect x="8" y="35" width="12" height="21" rx="3"/><rect x="26" y="20" width="12" height="36" rx="3"/><rect x="44" y="7" width="12" height="49" rx="3"/>', 'gd')],
+  ['Reports', B('<path d="M30 10a23 23 0 1 0 24 24H30z"/>') + B('<path d="M36 4a24 24 0 0 1 24 24H36z"/>', 'gd')],
+
+  ['Inbox', B('<path d="M8 41l7-15h34l7 15v13a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z"/>') + S('<path d="M8 41h15l3 5h12l3-5h15"/>', 3) + F('<path d="M28 5h8v14h8L32 31 20 19h8z"/>')],
+  ['Send', B('<path d="M6 30L58 8 30 38z"/>', 'gl') + B('<path d="M58 8L44 56 30 38z"/>', 'gd')],
+  ['Navigate', B('<path d="M10 28L56 8 30 34z"/>', 'gl') + B('<path d="M56 8L36 54 30 34z"/>', 'gd')],
+  ['Location', B('<path d="M32 6c-10 0-18 8-18 18 0 14 18 34 18 34s18-20 18-34c0-10-8-18-18-18z"/>', 'gd') + F('<circle cx="32" cy="24" r="7"/>', '#e3e4e6')],
+  ['Map', B('<path d="M6 14l16-6v42L6 56z"/><path d="M42 14l16-6v42l-16 6z"/>', 'gl') + B('<path d="M22 8l20 6v42l-20-6z"/>', 'gd')],
+  ['Globe', B('<circle cx="32" cy="32" r="24"/>', 'gb') + S('<circle cx="32" cy="32" r="24"/><ellipse cx="32" cy="32" rx="10" ry="24"/><path d="M8 32h48M12 19q20 6 40 0M12 45q20-6 40 0"/>', 3)],
+  ['Wi-Fi', S('<path d="M8 25a34 34 0 0 1 48 0M16 34a22 22 0 0 1 32 0M24 43a10 10 0 0 1 16 0"/>', 5) + B('<circle cx="32" cy="51" r="4.5"/>', 'gd')],
+  ['Bluetooth', S('<path d="M17 22l29 22-14 13V7l14 13-29 22"/>', 4.5)],
+  ['Brightness', B('<circle cx="32" cy="32" r="11"/>', 'gb') + S(`<path d="${rays()}"/>`, 4)],
+  ['Dark Mode', B('<path d="M40 8a24 24 0 1 0 16 34A20 20 0 0 1 40 8z"/>', 'gd', SOFT)],
+
+  ['Laptop', B('<rect x="12" y="12" width="40" height="30" rx="5"/>', 'gd') + B('<rect x="16" y="16" width="32" height="22" rx="2"/>', 'gl') + B('<path d="M4 46h56l-3 6a3 3 0 0 1-3 2H10a3 3 0 0 1-3-2z"/>')],
+  ['Desktop', B('<rect x="6" y="8" width="52" height="34" rx="6"/>', 'gd') + B('<rect x="10" y="12" width="44" height="26" rx="2"/>', 'gl') + B('<rect x="28" y="42" width="8" height="8"/>') + F('<rect x="17" y="50" width="30" height="6" rx="3"/>')],
+  ['Mobile', B('<rect x="17" y="5" width="30" height="54" rx="7"/>', 'gd') + B('<rect x="21" y="11" width="22" height="38" rx="3"/>', 'gl') + F('<circle cx="32" cy="54" r="1.8"/>', LT)],
+  ['Tablet', B('<rect x="9" y="5" width="46" height="54" rx="8"/>', 'gd') + B('<rect x="14" y="11" width="36" height="38" rx="3"/>', 'gl') + S('<path d="M28 54.5h8"/>', 2.5, LT)],
+  ['Watch', B('<path d="M22 5h20l2 11H20z"/><path d="M20 48h24l-2 11H22z"/>') + B('<rect x="14" y="16" width="36" height="32" rx="10"/>', 'gd') + B('<rect x="18" y="20" width="28" height="24" rx="6"/>', 'gl') + F('<rect x="50" y="28" width="3.5" height="8" rx="1.7"/>')],
+  ['Database', B('<path d="M12 14v36c0 5 9 8 20 8s20-3 20-8V14z"/>') + B('<ellipse cx="32" cy="14" rx="20" ry="7"/>', 'gd') + S('<path d="M12 26c0 5 9 8 20 8s20-3 20-8M12 38c0 5 9 8 20 8s20-3 20-8"/>', 3)],
+  ['Layers', B('<path d="M8 40l24 11 24-11v7L32 58 8 47z"/>', 'gl') + B('<path d="M8 28l24 11 24-11v7L32 46 8 35z"/>') + B('<path d="M32 7l24 11-24 11L8 18z"/>', 'gd')],
+  ['3D / Box', B('<path d="M32 6l22 12-22 12L10 18z"/>', 'gl') + B('<path d="M10 18l22 12v28L10 46z"/>') + B('<path d="M54 18L32 30v28l22-12z"/>', 'gd')],
+  ['Tag', B('<path d="M12 10h20l23 23-22 22L10 32V12z"/>', 'gd', SOFT) + F('<circle cx="21" cy="21" r="4"/>', '#e3e4e6')],
+  ['Discount', disc(S('<path d="M43 20L21 44"/>', 4.5, LT) + S('<circle cx="22" cy="22" r="4.5"/><circle cx="42" cy="42" r="4.5"/>', 3.5, LT))],
+
+  ['Cart', S('<path d="M4 10h8l6 28h29l6-21"/>', 4) + B('<path d="M14 18h40l-6 20H18z"/>') + B('<circle cx="24" cy="50" r="5.5"/><circle cx="44" cy="50" r="5.5"/>', 'gd')],
+  ['Bag', S('<path d="M22 22v-6a10 10 0 0 1 20 0v6"/>', 4.5) + B('<path d="M10 20h44l2 33a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z"/>')],
+  ['Card', B('<rect x="4" y="12" width="56" height="40" rx="8"/>') + B('<rect x="4" y="22" width="56" height="9"/>', 'gd') + S('<path d="M12 42h13"/>', 3, '#3a3d41')],
+  ['Wallet', B('<rect x="6" y="14" width="52" height="38" rx="10"/>') + B('<rect x="36" y="27" width="24" height="15" rx="7"/>', 'gd') + F('<circle cx="46" cy="34.5" r="2.6"/>', LT)],
+  ['Receipt', B('<path d="M14 6h36v52l-6-4-6 4-6-4-6 4-6-4-6 4z"/>', 'gl') + S('<path d="M22 20h20M22 29h20M22 38h12"/>', 3, '#45484d')],
+  ['Bank', B('<path d="M32 6l26 14v4H6v-4z"/>', 'gd') + B('<rect x="11" y="28" width="9" height="20" rx="2"/><rect x="27.5" y="28" width="9" height="20" rx="2"/><rect x="44" y="28" width="9" height="20" rx="2"/>') + B('<rect x="6" y="52" width="52" height="6" rx="3"/>', 'gd')],
+  ['Gift', B('<rect x="8" y="26" width="48" height="30" rx="5"/>') + B('<rect x="6" y="19" width="52" height="11" rx="3"/>', 'gd') + B('<rect x="28" y="19" width="8" height="37"/>', 'gd') + S('<path d="M32 19c-3-11-17-12-14-4 2 4 14 4 14 4zM32 19c3-11 17-12 14-4-2 4-14 4-14 4z"/>', 4)],
+  ['Power', B('<path d="M37 4L12 37h16l-4 23 28-34H36z"/>', 'gd', SOFT)],
+  ['Info', disc(F('<circle cx="32" cy="20" r="3.8"/><rect x="29" y="28" width="6" height="19" rx="3"/>', LT))],
+  ['Help', disc(S('<path d="M24 25a8 8 0 1 1 11 7c-3 2-3 4-3 7"/>', 5, LT) + F('<circle cx="32" cy="48" r="3.4"/>', LT))]
+];
+
+const flip = s => `<g transform="rotate(180 32 32)">${s}</g>`;
+const up = (s, y = -8) => `<g transform="translate(0 ${y})">${s}</g>`;
+const dots = (pts, r, c) => F(pts.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="${r}"/>`).join(''), c);
+
+const NAV = [
+  ['Arrow Up', btn(S('<path d="M32 46V19M21 29l11-11 11 11"/>', 5, LT))],
+  ['Arrow Down', btn(S('<path d="M32 18v27M21 35l11 11 11-11"/>', 5, LT))],
+  ['Arrow Left', btn(S('<path d="M46 32H19M29 21L18 32l11 11"/>', 5, LT))],
+  ['Arrow Right', btn(S('<path d="M18 32h27M35 21l11 11-11 11"/>', 5, LT))],
+  ['Chevron Up', disc(S('<path d="M22 38l10-10 10 10"/>', 5.5, LT))],
+  ['Chevron Down', disc(S('<path d="M22 26l10 10 10-10"/>', 5.5, LT))],
+  ['Chevron Left', disc(S('<path d="M38 22L28 32l10 10"/>', 5.5, LT))],
+  ['Chevron Right', disc(S('<path d="M26 22l10 10-10 10"/>', 5.5, LT))],
+  ['Menu', btn(S('<path d="M20 23h24M20 32h24M20 41h24"/>', 5, LT))],
+  ['More', btn(dots([[21, 32], [32, 32], [43, 32]], 3.6, LT))],
+  ['External Link', btn(S('<path d="M28 21h-6v21h21v-6M33 31l11-11M35 20h9v9"/>', 4.5, LT))],
+  ['Expand', btn(S('<path d="M21 28v-7h7M43 28v-7h-7M21 36v7h7M43 36v7h-7"/>', 4.5, LT))],
+  ['Collapse', btn(S('<path d="M28 21v7h-7M36 21v7h7M28 43v-7h-7M36 43v-7h7"/>', 4.5, LT))],
+  ['Undo', btn(S('<path d="M24 28h14a8 8 0 0 1 0 16H27M30 21l-7 7 7 7"/>', 4.5, LT))],
+  ['Redo', btn(S('<path d="M40 28H26a8 8 0 0 0 0 16h11M34 21l7 7-7 7"/>', 4.5, LT))],
+  ['Sort', btn(S('<path d="M25 44V20M19 26l6-6 6 6M39 20v24M33 38l6 6 6-6"/>', 4.5, LT))]
+];
+
+const ACTIONS = [
+  ['Copy', B('<rect x="22" y="20" width="34" height="38" rx="8"/>', 'gd') + B('<rect x="8" y="6" width="34" height="38" rx="8"/>', 'gl') + S('<path d="M16 18h18M16 26h18M16 34h10"/>', 3, '#45484d')],
+  ['Paste', B('<rect x="10" y="12" width="44" height="46" rx="9"/>', 'gd') + B('<rect x="21" y="5" width="22" height="13" rx="5"/>', 'gl') + S('<path d="M20 32h24M20 42h16"/>', 3.5, LT)],
+  ['Cut', S('<path d="M22 6l22 32M42 6L20 38"/>', 4.5) + B('<circle cx="19" cy="47" r="9"/><circle cx="45" cy="47" r="9"/>', 'gd') + dots([[19, 47], [45, 47]], 3.4, LT)],
+  ['Save', B('<path d="M10 8h36l8 8v36a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z"/>', 'gd') + B('<rect x="19" y="8" width="24" height="16" rx="3"/>', 'gl') + B('<rect x="17" y="34" width="30" height="22" rx="4"/>', 'gl') + S('<path d="M24 42h16M24 49h10"/>', 3, '#45484d')],
+  ['Print', B('<rect x="16" y="6" width="32" height="18" rx="4"/>', 'gl') + B('<rect x="6" y="20" width="52" height="26" rx="9"/>', 'gd') + B('<rect x="16" y="36" width="32" height="22" rx="4"/>', 'gl') + S('<path d="M23 44h18M23 51h12"/>', 3, '#45484d')],
+  ['Zoom In', B('<circle cx="27" cy="27" r="17"/>', 'gl') + S('<circle cx="27" cy="27" r="17"/>', 5) + S('<path d="M40 40L55 55"/>', 7) + S('<path d="M27 19v16M19 27h16"/>', 4)],
+  ['Zoom Out', B('<circle cx="27" cy="27" r="17"/>', 'gl') + S('<circle cx="27" cy="27" r="17"/>', 5) + S('<path d="M40 40L55 55"/>', 7) + S('<path d="M19 27h16"/>', 4)],
+  ['Crop', S('<path d="M18 4v42h42M4 18h42v42"/>', 6.5)],
+  ['Pin', B('<path d="M22 6h20l-4 18 9 11H17l9-11z"/>', 'gd') + S('<path d="M32 35v23"/>', 4.5)],
+  ['Attach', S('<path d="M46 28L29 45a9 9 0 0 1-13-13l21-21a6 6 0 0 1 9 9L25 41a3 3 0 0 1-4-4l16-16"/>', 5)],
+  ['Archive', B('<rect x="6" y="10" width="52" height="14" rx="5"/>', 'gd') + B('<path d="M10 24h44v28a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z"/>', 'gl') + S('<path d="M25 34h14"/>', 4.5)],
+  ['View', B('<path d="M3 32c6-12 17-18 29-18s23 6 29 18c-6 12-17 18-29 18S9 44 3 32z"/>', 'gl') + B('<circle cx="32" cy="32" r="12"/>', 'gd') + dots([[32, 32]], 4.6, LT)],
+  ['Hide', B('<path d="M3 32c6-12 17-18 29-18s23 6 29 18c-6 12-17 18-29 18S9 44 3 32z"/>', 'gl') + B('<circle cx="32" cy="32" r="12"/>', 'gd') + S('<path d="M10 56L54 8"/>', 5)],
+  ['Flag', S('<path d="M13 6v52"/>', 5.5) + B('<path d="M16 9h40l-10 14 10 14H16z"/>', 'gd')],
+  ['Funnel', B('<path d="M5 9h54L38 34v20l-12 -6V34z"/>', 'gd', SOFT)],
+  ['Drag', dots([[24, 14], [40, 14], [24, 32], [40, 32], [24, 50], [40, 50]], 5, '#55585e')]
+];
+
+const STATUS = [
+  ['Success', disc(S('<path d="M20 33l8 8 16-17"/>', 5.5, LT), 'gb')],
+  ['Warning', B('<path d="M32 6L60 55H4z"/>', 'gd', SOFT) + F('<rect x="29" y="22" width="6" height="19" rx="3"/><circle cx="32" cy="48" r="3.4"/>', LT)],
+  ['Error', disc(S('<path d="M23 23l18 18M41 23L23 41"/>', 5.5, LT))],
+  ['Loading', '<g fill="none" stroke="#b3b6bb" stroke-width="9" filter="url(#fz)" opacity=".5"><circle cx="32" cy="32" r="20"/></g><g fill="none" stroke="url(#gd)" stroke-width="9" stroke-linecap="round" filter="url(#fz)"><path d="M32 12a20 20 0 0 1 20 20"/></g>'],
+  ['Block', disc(S('<circle cx="32" cy="32" r="14"/><path d="M22 42L42 22"/>', 4.5, LT))],
+  ['Verified', B(gear(32, 32, 28, 22, 10), 'gd', SOFT) + S('<path d="M22 33l7 7 13-15"/>', 5, LT)],
+  ['Battery', B('<rect x="4" y="18" width="50" height="28" rx="9"/>', 'gl') + B('<rect x="10" y="24" width="28" height="16" rx="4"/>', 'gd') + F('<rect x="56" y="27" width="5" height="10" rx="2.5"/>')],
+  ['Signal', B('<rect x="6" y="42" width="10" height="14" rx="3"/><rect x="20" y="32" width="10" height="24" rx="3"/><rect x="34" y="22" width="10" height="34" rx="3"/><rect x="48" y="8" width="10" height="48" rx="3"/>', 'gd')],
+  ['Offline', S('<path d="M8 25a34 34 0 0 1 48 0M16 34a22 22 0 0 1 32 0M24 43a10 10 0 0 1 16 0"/>', 5) + B('<circle cx="32" cy="51" r="4.5"/>', 'gd') + S('<path d="M10 56L54 8"/>', 5)],
+  ['Bug', S('<path d="M10 24l12 8M54 24L42 32M8 42h14M56 42H42M14 58l10-10M50 58L40 48"/>', 3.8) + B('<ellipse cx="32" cy="40" rx="14" ry="18"/>', 'gd') + B('<circle cx="32" cy="16" r="9"/>', 'gl') + S('<path d="M32 28v28"/>', 2.5, LT)],
+  ['Lightbulb', B('<path d="M32 4c-11 0-18 8-18 18 0 8 5 12 8 16v6h20v-6c3-4 8-8 8-16 0-10-7-18-18-18z"/>', 'gl') + B('<rect x="22" y="48" width="20" height="9" rx="4.5"/>', 'gd') + S('<path d="M26 32l6-8 6 8"/>', 3, '#4a4d52')],
+  ['Rocket', B('<path d="M20 30L8 42l5 8 9-4zM44 30l12 12-5 8-9-4z"/>', 'gd') + B('<path d="M32 2c11 8 15 20 12 38H20C17 22 21 10 32 2z"/>', 'gl') + B('<path d="M25 44h14l-7 16z"/>', 'gd') + F('<circle cx="32" cy="22" r="5.5"/>')]
+];
+
+const COMMS = [
+  ['Mail', B('<rect x="5" y="12" width="54" height="40" rx="9"/>', 'gl') + S('<path d="M10 19l22 18 22-18"/>', 3.5, '#45484d')],
+  ['Mail Open', B('<rect x="14" y="8" width="36" height="30" rx="4"/>', 'gl') + S('<path d="M21 18h22M21 26h16"/>', 3, '#45484d') + B('<path d="M5 28l27 20 27-20v22a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5z"/>', 'gd')],
+  ['Phone', B('<path d="M16 8l10 4 4 12-6 6c4 8 10 14 18 18l6-6 12 4 2 8c0 6-6 8-12 6C26 52 10 36 6 16c-1-6 4-10 10-8z"/>', 'gd')],
+  ['Video Call', B('<rect x="4" y="14" width="40" height="36" rx="9"/>', 'gd') + B('<path d="M47 27l13-9v28l-13-9z"/>', 'gl')],
+  ['Comment', B('<path d="M32 7c15 0 26 9 26 21S47 49 32 49c-3 0-6-.4-8-1l-12 9 3-13C10 41 6 35 6 28 6 16 17 7 32 7z"/>', 'gd')],
+  ['Mention', S('<circle cx="32" cy="32" r="9"/><path d="M41 23v13a6 6 0 0 0 12 0v-4a21 21 0 1 0-8 17"/>', 5.5)],
+  ['Megaphone', B('<path d="M6 24h14l26-14v44L20 40H6z"/>', 'gd') + B('<path d="M14 40h10l4 17h-10z"/>', 'gl') + S('<path d="M52 24a11 11 0 0 1 0 16"/>', 4.5)],
+  ['Emoji', B('<circle cx="32" cy="32" r="25"/>', 'gl') + dots([[23, 26], [41, 26]], 3.6, INK) + S('<path d="M20 38a14 12 0 0 0 24 0"/>', 4)],
+  ['Thumbs Up', B('<rect x="6" y="28" width="13" height="28" rx="4"/>', 'gd') + B('<path d="M24 28l8-20c5 0 7 4 6 9l-2 9h16a5 5 0 0 1 5 6l-4 18a6 6 0 0 1-6 5H24z"/>', 'gl')],
+  ['Thumbs Down', flip(B('<rect x="6" y="28" width="13" height="28" rx="4"/>', 'gd') + B('<path d="M24 28l8-20c5 0 7 4 6 9l-2 9h16a5 5 0 0 1 5 6l-4 18a6 6 0 0 1-6 5H24z"/>', 'gl'))],
+  ['Feed', S('<path d="M10 28a26 26 0 0 1 26 26M10 12a42 42 0 0 1 42 42"/>', 6.5) + B('<circle cx="14" cy="50" r="7"/>', 'gd')],
+  ['Conversation', B('<rect x="5" y="7" width="36" height="26" rx="9"/>', 'gd') + B('<rect x="23" y="25" width="36" height="26" rx="9"/>', 'gl') + dots([[34, 38], [41, 38], [48, 38]], 2.8, INK)]
+];
+
+const PEOPLE = [
+  ['Add User', B('<circle cx="24" cy="20" r="10"/>', 'gd') + B('<path d="M4 55c0-12 8-19 20-19s20 7 20 19z"/>', 'gl') + S('<path d="M50 14v16M42 22h16"/>', 4.5)],
+  ['Remove User', B('<circle cx="24" cy="20" r="10"/>', 'gd') + B('<path d="M4 55c0-12 8-19 20-19s20 7 20 19z"/>', 'gl') + S('<path d="M42 22h16"/>', 4.5)],
+  ['ID Card', B('<rect x="4" y="11" width="56" height="42" rx="9"/>', 'gl') + B('<circle cx="21" cy="28" r="6.5"/>', 'gd') + B('<path d="M10 46c0-6 5-10 11-10s11 4 11 10z"/>', 'gd') + S('<path d="M38 26h14M38 34h14M38 42h9"/>', 3, '#45484d')],
+  ['Login', B('<path d="M32 8h20a4 4 0 0 1 4 4v40a4 4 0 0 1-4 4H32v-8h16V16H32z"/>', 'gd') + S('<path d="M6 32h28M24 21l11 11-11 11"/>', 5)],
+  ['Logout', B('<path d="M32 8H12a4 4 0 0 0-4 4v40a4 4 0 0 0 4 4h20v-8H16V16h16z"/>', 'gd') + S('<path d="M26 32h28M45 21l11 11-11 11"/>', 5)],
+  ['Fingerprint', S('<path d="M12 28a20 20 0 0 1 40 0M18 56c-2-6-2-12-2-18a16 16 0 0 1 32 0c0 8 0 14 2 18M26 56c-2-6-2-10-2-18a8 8 0 0 1 16 0c0 6 0 12 4 18M32 38v8"/>', 4.2)],
+  ['Password', B('<rect x="4" y="18" width="56" height="28" rx="10"/>', 'gl') + dots([[17, 32], [28, 32], [39, 32], [50, 32]], 3.4, INK)],
+  ['Crown', B('<path d="M7 20l14 13 11-21 11 21 14-13-5 32H12z"/>', 'gd', SOFT)],
+  ['Support', S('<path d="M10 36v-6a22 22 0 0 1 44 0v6"/>', 5.5) + B('<rect x="5" y="32" width="13" height="19" rx="6.5"/><rect x="46" y="32" width="13" height="19" rx="6.5"/>') + S('<path d="M52 51c0 6-6 8-13 8"/>', 3.5) + B('<rect x="28" y="55" width="12" height="6" rx="3"/>', 'gd')]
+];
+
+const COMMERCE = [
+  ['Coin', B('<circle cx="32" cy="32" r="25"/>', 'gb') + S('<circle cx="32" cy="32" r="18"/>', 2.5, '#4a4d52') + S('<path d="M39 24c-1-5-14-5-14 2 0 8 15 4 15 12 0 6-13 7-15 1M32 17v30"/>', 3.5)],
+  ['Money', B('<rect x="3" y="15" width="58" height="34" rx="8"/>', 'gl') + B('<circle cx="32" cy="32" r="10"/>', 'gd') + dots([[13, 32], [51, 32]], 3, '#4a4d52')],
+  ['Trend Up', S('<path d="M6 46l17-17 10 10 23-23M42 16h15v15"/>', 5.5)],
+  ['Trend Down', S('<path d="M6 18l17 17 10-10 23 23M42 48h15V33"/>', 5.5)],
+  ['Store', B('<path d="M9 28h46v27a3 3 0 0 1-3 3H12a3 3 0 0 1-3-3z"/>', 'gl') + B('<path d="M8 8h48l5 16a8 8 0 0 1-16 0 8 8 0 0 1-16 0 8 8 0 0 1-16 0z"/>', 'gd') + F('<rect x="26" y="38" width="12" height="20" rx="2"/>')],
+  ['Truck', B('<rect x="3" y="14" width="38" height="30" rx="5"/>', 'gl') + B('<path d="M41 24h12l8 10v10H41z"/>', 'gd') + B('<circle cx="16" cy="48" r="7.5"/><circle cx="49" cy="48" r="7.5"/>', 'gb') + dots([[16, 48], [49, 48]], 2.8, LT)],
+  ['Package', B('<path d="M10 17l22 12v28L10 45z"/>', 'gb') + B('<path d="M54 17L32 29v28l22-12z"/>', 'gd') + B('<path d="M32 5l22 12-22 12L10 17z"/>', 'gl') + S('<path d="M21 11l22 12v10"/>', 3.5, '#4a4d52')],
+  ['Barcode', B('<rect x="5" y="10" width="54" height="44" rx="9"/>', 'gl') + F('<rect x="13" y="18" width="3" height="28"/><rect x="19" y="18" width="2" height="28"/><rect x="24" y="18" width="5" height="28"/><rect x="32" y="18" width="2" height="28"/><rect x="37" y="18" width="4" height="28"/><rect x="44" y="18" width="2" height="28"/><rect x="48" y="18" width="3" height="28"/>')],
+  ['QR Code', B('<rect x="6" y="6" width="23" height="23" rx="6"/><rect x="35" y="6" width="23" height="23" rx="6"/><rect x="6" y="35" width="23" height="23" rx="6"/>', 'gd') + B('<rect x="38" y="38" width="8" height="8" rx="2"/><rect x="50" y="38" width="8" height="8" rx="2"/><rect x="38" y="50" width="8" height="8" rx="2"/><rect x="50" y="50" width="8" height="8" rx="2"/>', 'gl')],
+  ['Piggy Bank', B('<path d="M14 24l-4-12 14 6z"/>', 'gd') + B('<ellipse cx="31" cy="36" rx="23" ry="18"/>', 'gd') + B('<rect x="18" y="48" width="9" height="11" rx="3"/><rect x="38" y="48" width="9" height="11" rx="3"/>') + B('<rect x="50" y="32" width="10" height="12" rx="5"/>', 'gl') + S('<path d="M24 22h14"/>', 3.5, LT) + dots([[42, 32]], 2.8, LT)],
+  ['Briefcase', S('<path d="M22 18v-6a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v6"/>', 4.5) + B('<rect x="5" y="18" width="54" height="38" rx="9"/>', 'gd') + S('<path d="M5 35h54"/>', 2.5, LT) + F('<rect x="28" y="31" width="8" height="8" rx="2"/>', '#dfe1e3')],
+  ['Trophy', B('<path d="M18 6h28v18a14 14 0 0 1-28 0z"/>', 'gd') + S('<path d="M18 13h-9v7a11 11 0 0 0 11 11M46 13h9v7a11 11 0 0 1-11 11"/>', 4) + B('<rect x="27" y="38" width="10" height="11"/>', 'gl') + B('<rect x="17" y="49" width="30" height="9" rx="3.5"/>', 'gd')]
+];
+
+const DEV = [
+  ['Code', btn(S('<path d="M26 22L15 32l11 10M38 22l11 10-11 10"/>', 5, LT))],
+  ['Terminal', B('<rect x="4" y="9" width="56" height="46" rx="10"/>', 'gd') + S('<path d="M15 24l10 8-10 8M30 42h16"/>', 4.5, LT)],
+  ['Git Branch', S('<path d="M18 14v36M18 42c0-10 28-4 28-20"/>', 4.5) + B('<circle cx="18" cy="14" r="7"/><circle cx="18" cy="50" r="7"/><circle cx="46" cy="22" r="7"/>', 'gd')],
+  ['Plug', S('<path d="M22 4v16M42 4v16M32 46v14"/>', 5.5) + B('<path d="M10 18h44v12c0 11-9 19-22 19S10 41 10 30z"/>', 'gd')],
+  ['Server', B('<rect x="5" y="6" width="54" height="16" rx="6"/><rect x="5" y="24" width="54" height="16" rx="6"/><rect x="5" y="42" width="54" height="16" rx="6"/>', 'gd') + dots([[16, 14], [16, 32], [16, 50]], 2.8, LT) + S('<path d="M30 14h22M30 32h22M30 50h22"/>', 3, LT)],
+  ['Chip', S('<path d="M25 5v11M39 5v11M25 48v11M39 48v11M5 25h11M5 39h11M48 25h11M48 39h11"/>', 4.5) + B('<rect x="14" y="14" width="36" height="36" rx="8"/>', 'gd') + B('<rect x="24" y="24" width="16" height="16" rx="4"/>', 'gl')],
+  ['Palette', B('<path d="M32 5C16 5 5 17 5 31s11 28 27 28c6 0 7-4 5-7s-1-7 4-7h8c7 0 13-5 13-12C62 15 49 5 32 5z"/>', 'gl') + dots([[18, 31], [26, 17], [40, 16], [49, 28]], 4.2, '#45484d')],
+  ['Brush', B('<path d="M46 4l14 14-26 26-14-14z"/>', 'gd') + B('<path d="M19 33c-7 0-11 5-11 11 0 6-3 9-3 9 13 5 26 2 28-11z"/>', 'gl')],
+  ['Ruler', B('<path d="M6 46L46 6l12 12L18 58z"/>', 'gd') + S('<path d="M20 38l5 5M27 31l4 4M34 24l5 5M41 17l4 4"/>', 3.2, LT)],
+  ['Layout', B('<rect x="5" y="7" width="54" height="50" rx="9"/>', 'gd') + B('<rect x="10" y="12" width="44" height="11" rx="3.5"/>', 'gl') + B('<rect x="10" y="28" width="15" height="24" rx="3.5"/>', 'gl') + B('<rect x="29" y="28" width="25" height="24" rx="3.5"/>', 'gl')],
+  ['Puzzle', B('<path d="M8 20h14a6 6 0 1 1 12 0h14v14a6 6 0 1 1 0 12v10H8z"/>', 'gd', SOFT)],
+  ['Wrench', B('<g transform="rotate(45 32 32)"><rect x="27" y="22" width="10" height="38" rx="5"/><path d="M19 3h8v13h10V3h8v17a13 13 0 0 1-26 0z"/></g>', 'gd')],
+  ['Magic Wand', S('<path d="M8 56L38 26"/>', 7) + B(star(46, 18, 14, 5.5), 'gd') + B('<circle cx="14" cy="18" r="4"/><circle cx="52" cy="48" r="3.4"/>', 'gl')]
+];
+
+const FILES = [
+  ['New File', B('<path d="M14 6h24l14 14v34a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/>', 'gl') + F('<path d="M38 6l14 14H42a4 4 0 0 1-4-4z"/>') + S('<path d="M31 29v18M22 38h18"/>', 4.5, '#45484d')],
+  ['Folder Open', B('<path d="M5 16a4 4 0 0 1 4-4h15l5 5h22a4 4 0 0 1 4 4v8H5z"/>', 'gd') + B('<path d="M9 28h52l-6 25a4 4 0 0 1-4 3H11a4 4 0 0 1-4-4z"/>', 'gl')],
+  ['Zip File', B('<path d="M14 6h24l14 14v34a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/>', 'gl') + S('<path d="M28 8v8M32 12v8M28 16v8M32 20v8M28 24v8"/>', 3) + B('<rect x="25" y="34" width="10" height="13" rx="3"/>', 'gd')],
+  ['Clipboard', B('<rect x="9" y="10" width="46" height="48" rx="9"/>', 'gl') + B('<rect x="21" y="4" width="22" height="13" rx="5"/>', 'gd') + S('<path d="M19 31h26M19 40h26M19 49h14"/>', 3, '#45484d')],
+  ['Book', B('<path d="M5 10h25v46H10a5 5 0 0 1-5-5z"/>', 'gd') + B('<path d="M34 10h25v41a5 5 0 0 1-5 5H34z"/>', 'gl') + S('<path d="M41 22h11M41 30h11"/>', 3, '#45484d')],
+  ['Notebook', S('<path d="M13 16H5M13 28H5M13 40H5M13 52H5"/>', 4.5) + B('<rect x="12" y="5" width="44" height="54" rx="8"/>', 'gl') + S('<path d="M24 20h22M24 30h22M24 40h13"/>', 3, '#45484d')],
+  ['Table', B('<rect x="5" y="9" width="54" height="46" rx="9"/>', 'gl') + S('<path d="M5 23h54M5 38h54M25 23v32"/>', 2.6, '#4a4d52')],
+  ['Checklist', B('<rect x="7" y="7" width="50" height="50" rx="10"/>', 'gd') + S('<path d="M15 21l4 4 7-8M15 37l4 4 7-8M34 22h15M34 38h15"/>', 3.6, LT)],
+  ['Translate', B('<rect x="5" y="5" width="36" height="36" rx="9"/>', 'gd') + B('<rect x="23" y="23" width="36" height="36" rx="9"/>', 'gl') + S('<path d="M12 16h20M22 12v4M16 34c5-2 9-7 11-18M19 24c2 4 7 8 12 9"/>', 3, LT) + S('<path d="M33 52l8-17 8 17M36 46h10"/>', 3.6)],
+  ['Sticky Note', B('<path d="M6 6h52v34L40 58H6z"/>', 'gl') + B('<path d="M58 40L40 58V45a5 5 0 0 1 5-5z"/>', 'gd') + S('<path d="M15 20h34M15 30h22"/>', 3, '#45484d')],
+  ['Download File', B('<path d="M14 6h24l14 14v34a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/>', 'gl') + S('<path d="M31 22v20M23 35l8 8 8-8"/>', 4.5, '#45484d')]
+];
+
+const WEATHER = [
+  ['Cloudy', B(`<path d="${cloud}"/>`, 'gl')],
+  ['Rain', up(B(`<path d="${cloud}"/>`, 'gl'), -9) + S('<path d="M20 46l-3 8M32 46l-3 8M44 46l-3 8"/>', 4.5)],
+  ['Snow', up(B(`<path d="${cloud}"/>`, 'gl'), -9) + dots([[19, 49], [32, 54], [45, 49]], 3.6, '#55585e')],
+  ['Storm', up(B(`<path d="${cloud}"/>`, 'gl'), -10) + B('<path d="M36 38l-10 12h8l-4 11 13-15h-8z"/>', 'gd')],
+  ['Wind', S('<path d="M5 22h31a7 7 0 1 0-7-7M5 35h43a7 7 0 1 1-7 7M5 48h20"/>', 5)],
+  ['Leaf', B('<path d="M8 56C5 28 20 9 56 6c3 33-13 50-38 48z"/>', 'gd') + S('<path d="M10 56L40 26"/>', 3.5, LT)],
+  ['Flame', B('<path d="M32 3c2 12 18 18 18 35a18 18 0 0 1-36 0c0-8 5-13 9-17 1 5 3 8 7 8-3-9-1-18 2-26z"/>', 'gd') + B('<path d="M32 59a9 9 0 0 1-9-9c0-6 6-9 9-16 4 6 9 9 9 16a9 9 0 0 1-9 9z"/>', 'gl')],
+  ['Droplet', B('<path d="M32 4C22 19 11 29 11 41a21 21 0 0 0 42 0C53 29 42 19 32 4z"/>', 'gd') + S('<path d="M22 43a10 10 0 0 0 8 9"/>', 3.6, LT)],
+  ['Thermometer', B('<rect x="23" y="4" width="18" height="40" rx="9"/>', 'gl') + B('<circle cx="32" cy="48" r="12"/>', 'gd') + S('<path d="M32 16v30"/>', 4.5, LT)],
+  ['Umbrella', B('<path d="M4 32C4 17 17 6 32 6s28 11 28 26z"/>', 'gd') + S('<path d="M32 32v19a6.5 6.5 0 0 1-13 0"/>', 4.5)]
+];
+
+const OBJECTS = [
+  ['Coffee', S('<path d="M45 26h3a8 8 0 0 1 0 16h-4"/>', 4.5) + B('<path d="M7 22h38v20a14 14 0 0 1-14 14H21A14 14 0 0 1 7 42z"/>', 'gd') + S('<path d="M17 6c-3 4 3 6 0 11M28 6c-3 4 3 6 0 11"/>', 3.6)],
+  ['Car', B('<path d="M12 28l6-15h28l6 15z"/>', 'gl') + B('<rect x="3" y="26" width="58" height="22" rx="9"/>', 'gd') + B('<circle cx="17" cy="50" r="7.5"/><circle cx="47" cy="50" r="7.5"/>', 'gb') + dots([[17, 50], [47, 50]], 2.8, LT)],
+  ['Plane', B('<path d="M32 4c3 0 5 3 5 8v14l21 14v6L37 38v12l7 6v4l-12-3-12 3v-4l7-6V38L6 46v-6l21-14V12c0-5 2-8 5-8z"/>', 'gd')],
+  ['Bicycle', S('<circle cx="14" cy="42" r="10"/><circle cx="50" cy="42" r="10"/><path d="M14 42l10-20h18l8 20M24 22l10 20M20 15h9M40 15h7"/>', 4)],
+  ['Building', B('<rect x="9" y="5" width="30" height="54" rx="5"/>', 'gd') + B('<rect x="39" y="24" width="16" height="35" rx="4"/>', 'gl') + dots([[19, 17], [29, 17], [19, 28], [29, 28], [19, 39], [29, 39]], 2.6, LT) + F('<rect x="17" y="48" width="14" height="11" rx="2"/>', LT)],
+  ['Education', B('<path d="M32 6L3 21l29 15 29-15z"/>', 'gd') + B('<path d="M14 32v13c0 5 8 9 18 9s18-4 18-9V32L32 40z"/>', 'gl') + S('<path d="M58 22v18"/>', 3.6)],
+  ['Health', B('<path d="M32 57C11 43 6 31 6 24a14 14 0 0 1 26-7 14 14 0 0 1 26 7c0 7-5 19-26 33z"/>', 'gd') + S('<path d="M12 33h12l5-9 7 16 5-7h11"/>', 3.8, LT)],
+  ['Fitness', B('<rect x="3" y="22" width="8" height="20" rx="3"/><rect x="13" y="15" width="10" height="34" rx="3"/><rect x="41" y="15" width="10" height="34" rx="3"/><rect x="53" y="22" width="8" height="20" rx="3"/>', 'gd') + S('<path d="M23 32h18"/>', 5.5)],
+  ['Compass', B('<circle cx="32" cy="32" r="26"/>', 'gl') + S('<circle cx="32" cy="32" r="26"/>', 3, '#4a4d52') + B('<path d="M44 20L37 37 20 44l7-17z"/>', 'gd') + dots([[32, 32]], 3, LT)],
+  ['Target', B('<circle cx="32" cy="32" r="26"/>', 'gl') + S('<circle cx="32" cy="32" r="26"/><circle cx="32" cy="32" r="15"/>', 3.5, '#4a4d52') + dots([[32, 32]], 6, INK)],
+  ['Sparkles', B('<path d="M26 4c2 15 9 22 22 24-13 2-20 9-22 24-2-15-9-22-22-24 13-2 20-9 22-24z"/>', 'gd') + B('<path d="M50 36c1 6 3 8 9 9-6 1-8 3-9 9-1-6-3-8-9-9 6-1 8-3 9-9z"/>', 'gl')],
+  ['Bell Off', B('<path d="M32 8c-9 0-15 6-15 15v10l-5 8v3h40v-3l-5-8V23c0-9-6-15-15-15z"/>', 'gd') + B('<path d="M26 52a6 6 0 0 0 12 0z"/>') + S('<path d="M8 58L56 6"/>', 5)],
+  ['Calendar Check', B('<rect x="7" y="11" width="50" height="46" rx="10"/>', 'gd') + B('<rect x="7" y="11" width="50" height="13" rx="6"/>', 'gl') + S('<path d="M20 6v10M44 6v10"/>', 5) + S('<path d="M21 40l8 8 14-15"/>', 4.5, LT)],
+  ['History', S('<path d="M9 32a23 23 0 1 0 6-16M8 10v11h11M32 19v14l9 6"/>', 5)],
+  ['Scissors', S('<path d="M22 6l22 32M42 6L20 38"/>', 4.5) + B('<circle cx="19" cy="47" r="9"/><circle cx="45" cy="47" r="9"/>', 'gl') + dots([[19, 47], [45, 47]], 3.4, INK)]
+];
+
+const Cr = (m, g = 'gl') => `<g fill="${g[0] === '#' ? g : 'url(#' + g + ')'}" stroke="rgba(0,0,0,.2)" stroke-width="1">${m}</g>`;
+const CONTROLS = [
+  ['Toggle On', Cr('<rect x="3" y="15" width="58" height="34" rx="17"/>', 'gd') + Cr('<circle cx="44" cy="32" r="12"/>', '#f6f7f8')],
+  ['Toggle Off', Cr('<rect x="3" y="15" width="58" height="34" rx="17"/>', 'gl') + Cr('<circle cx="20" cy="32" r="12"/>', '#f6f7f8')],
+  ['Checkbox', Cr('<rect x="9" y="9" width="46" height="46" rx="12"/>', 'gl') + Cr('<rect x="14" y="14" width="36" height="36" rx="8"/>', '#f1f2f3')],
+  ['Checked', btn(S('<path d="M20 33l8 8 16-17"/>', 5.5, LT), 'gd')],
+  ['Radio Off', Cr('<circle cx="32" cy="32" r="25"/>', 'gl') + Cr('<circle cx="32" cy="32" r="18"/>', '#f1f2f3')],
+  ['Radio On', Cr('<circle cx="32" cy="32" r="25"/>', 'gl') + Cr('<circle cx="32" cy="32" r="13"/>', 'gd')],
+  ['Slider', Cr('<rect x="3" y="26" width="58" height="12" rx="6"/>', 'gl') + Cr('<rect x="3" y="26" width="36" height="12" rx="6"/>', 'gd') + Cr('<circle cx="39" cy="32" r="13"/>', '#f6f7f8')],
+  ['Text Input', Cr('<rect x="3" y="14" width="58" height="36" rx="10"/>', 'gl') + Cr('<rect x="7" y="18" width="50" height="28" rx="7"/>', '#f1f2f3') + S('<path d="M32 23v18M27 23h10M27 41h10"/>', 3.2)]
+];
+
+const GROUPS = [
+  ['Essentials', ICONS], ['Navigation', NAV], ['Actions', ACTIONS], ['Status', STATUS],
+  ['Communication', COMMS], ['People and account', PEOPLE], ['Commerce', COMMERCE],
+  ['Developer and design', DEV], ['Files and documents', FILES], ['Weather and nature', WEATHER],
+  ['Everyday objects', OBJECTS], ['Form controls', CONTROLS]
+];
+
+
+const A = (g, ink) => ({ gb: g, gd: g, gl: g, ink });
+const TINTS = {
+  'Success': A('gg'), 'Check': A('gg'), 'Add': A('gg'), 'Play': A('gg'), 'Security': A('gg'), 'Toggle On': {gd: 'gg'}, 'Checked': A('gg'),
+  'Error': A('gr'), 'Close': A('gr'), 'Block': A('gr'), 'Stop': A('gr'), 'Delete': A('gr', '#c23a3a'), 'Bug': A('gr', '#b23a3a'),
+  'Warning': A('ga'), 'Info': A('gbl'), 'Help': A('gp'), 'Verified': A('gbl'), 'Loading': {gd: 'gbl'},
+  'Battery': {gd: 'gg'}, 'Lightbulb': {gl: 'gy', gd: 'ga'}, 'Rocket': {gd: 'go'},
+  'Like': {gd: 'gr'}, 'Favorite': {gd: 'gy'}, 'Location': {gd: 'gr'}, 'Dark Mode': {gd: 'gp'},
+  'Brightness': {gb: 'gy', ink: '#e8a317'}, 'Power': {gd: 'ga'}, 'Gift': {gb: 'gr', gd: 'ga', ink: '#c23a3a'},
+  'Discount': A('go'), 'Notifications': {gd: 'ga'}, 'Tag': {gd: 'gt'},
+  'Folder': {gd: 'ga', gb: 'gy'}, 'Folder Open': {gd: 'ga', gl: 'gy'},
+  'Upload': {gl: 'gbl'}, 'Download': {gl: 'gbl'}, 'Messages': {gl: 'gbl'}, 'Globe': {gb: 'gbl'},
+  'Map': {gl: 'gg', gd: 'gbl'}, 'Analytics': {gd: 'gbl'}, 'Reports': {gb: 'gbl', gd: 'ga'}, 'Bluetooth': {ink: '#3b78d8'},
+  'Wi-Fi': {ink: '#3b78d8', gd: 'gbl'}, 'Offline': {ink: '#d64545', gd: 'gr'},
+  'Add User': {ink: '#2f9e5b'}, 'Remove User': {ink: '#d64545'}, 'Crown': {gd: 'gy'},
+  'Mail': {gl: 'gbl'}, 'Mail Open': {gd: 'gbl'}, 'Phone': {gd: 'gg'}, 'Megaphone': {gd: 'go'}, 'Comment': {gd: 'gbl'},
+  'Conversation': {gd: 'gbl', gl: 'gt'}, 'Feed': {gd: 'go', ink: '#e8702a'}, 'Emoji': {gl: 'gy'},
+  'Thumbs Up': {gl: 'gg'}, 'Thumbs Down': {gl: 'gr'},
+  'Coin': {gb: 'gy', ink: '#7a5a08'}, 'Money': {gl: 'gg', gd: 'gt'}, 'Trend Up': {ink: '#2f9e5b'}, 'Trend Down': {ink: '#d64545'},
+  'Store': {gd: 'gr'}, 'Truck': {gd: 'go'}, 'Piggy Bank': {gd: 'gk'}, 'Trophy': {gd: 'gy'},
+  'Git Branch': {gd: 'gp'}, 'Code': {gd: 'gp'}, 'Brush': {gd: 'gp', gl: 'gk'}, 'Magic Wand': {gd: 'gy', gl: 'ga'},
+  'Zip File': {gd: 'ga'}, 'Checklist': {gd: 'gg'}, 'Sticky Note': {gl: 'gy'}, 'Translate': {gd: 'gbl'},
+  'Download File': {ink: '#3b78d8'}, 'New File': {ink: '#2f9e5b'}, 'Book': {gd: 'gbl'},
+  'Rain': {ink: '#3b78d8'}, 'Storm': {gd: 'gy'}, 'Wind': {ink: '#1f9a8f'}, 'Leaf': A('gg'),
+  'Flame': {gd: 'go', gl: 'gy'}, 'Droplet': A('gbl'), 'Thermometer': {gd: 'gr'}, 'Umbrella': {gd: 'gbl'},
+  'Health': {gd: 'gr'}, 'Compass': {gd: 'gr'}, 'Target': {ink: '#d64545'}, 'Sparkles': {gd: 'gy', gl: 'ga'},
+  'Bell Off': {ink: '#d64545'}, 'Radio On': {gd: 'gbl'}, 'Slider': {gd: 'gbl'}
+};
+GROUPS.forEach(g => g[1].forEach(item => {
+  const m = TINTS[item[0]];
+  if (!m) return;
+  let t = item[1];
+  ['gb', 'gd', 'gl'].forEach(k => { if (m[k]) t = t.split('url(#' + k + ')').join('url(#' + m[k] + ')'); });
+  if (m.ink) t = t.split('#25272a').join(m.ink);
+  item[1] = t;
+}));
+
+
+document.getElementById('defs').innerHTML = DEFS;
+const IC = {}; GROUPS.forEach(([g, l]) => l.forEach(([n, m]) => IC[n] = m));
+const total = GROUPS.reduce((n, g) => n + g[1].length, 0);
+const ico = (n, s = 32) => `<svg viewBox="0 0 64 64" width="${s}" height="${s}" aria-hidden="true" style="overflow:visible;flex:none;display:block"><g filter="url(#sh)">${IC[n]}</g></svg>`;
+const $ = id => document.getElementById(id);
+const say = msg => { const t = $('toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(say.t); say.t = setTimeout(() => t.classList.remove('on'), 1600); };
+
+$('count').textContent = total + ' icons';
+$('count2').textContent = total;
+$('strip').innerHTML = ['Folder','Notifications','Messages','Add','Favorite','Security','Analytics','Calendar','Rocket','Palette','Cart','Camera'].map(n => `<span>${ico(n, 56)}</span>`).join('');
+
+const NAVS = [['overview','Overview','Home'],['principles','Principles','Compass'],['colour','Colour','Palette'],['typography','Typography','Text Input'],['layout','Layout and shape','Layout'],['icons','Icons','Apps'],['components','Components','Puzzle'],['ux','UX structure','Map'],['access','Accessibility','Verified'],['use','Use it','Code']];
+$('nav').innerHTML = NAVS.map(([id, t, i]) => `<a href="#${id}" data-id="${id}">${ico(i, 22)}${t}</a>`).join('');
+
+const sw = (arr) => arr.map(([n, a, v, b]) => `<div class="sw"><div class="chip" style="background:${b ? `linear-gradient(180deg,${a},${b})` : a}"></div><b>${n}</b><span>${b ? a + ' to ' + b : a}</span><code>${v}</code></div>`).join('');
+$('sw-neutral').innerHTML = sw([['Paper','#f8f8f9','--fz-bg'],['Surface','#ffffff','--fz-surface'],['Mist','#eceef0','--fz-mist'],['Line','#e0e1e4','--fz-line'],['Mute','#6a6d74','--fz-mute'],['Graphite','#25272a','--fz-graphite'],['Ink','#1d1f22','--fz-fg'],['Night','#131416','dark --fz-bg'],['Night surface','#1b1c1f','dark --fz-surface'],['Night line','#2a2c30','dark --fz-line']]);
+$('sw-brand').innerHTML = sw([['Faiz blue','#3b5bdb','--fz-primary'],['Hover','#2f4bc0','--fz-primary-hover'],['Pressed','#2840a3','--fz-primary-press'],['Tint','#edf0fd','--fz-primary-tint'],['Night blue','#8ea2ff','dark --fz-primary']]);
+$('sw-status').innerHTML = sw([['Success','#2f9e5b','--fz-success'],['Success ink','#1f7a45','--fz-success-ink'],['Success tint','#e8f6ee','--fz-success-tint'],['Danger','#d64545','--fz-danger'],['Danger ink','#b83232','--fz-danger-ink'],['Danger tint','#fdecec','--fz-danger-tint'],['Warning','#e6962a','--fz-warning'],['Warning ink','#9a5b0a','--fz-warning-ink'],['Warning tint','#fdf3e3','--fz-warning-tint'],['Info','#3b78d8','--fz-info'],['Info ink','#2d5fb8','--fz-info-ink'],['Info tint','#eaf1fc','--fz-info-tint']]);
+$('sw-accent').innerHTML = sw([['Green','#a6e8bd','--fz-green','#2f9e5b'],['Red','#f6aaaa','--fz-red','#d64545'],['Amber','#fbd596','--fz-amber','#e6962a'],['Blue','#acccf7','--fz-blue','#3b78d8'],['Orange','#fbc496','--fz-orange','#e8702a'],['Yellow','#fdea98','--fz-yellow','#e8b923'],['Purple','#cdbcf3','--fz-purple','#7a56d6'],['Pink','#f7b4cd','--fz-pink','#d6457f'],['Teal','#9ce3d9','--fz-teal','#1f9a8f'],['Graphite','#d0d3d7','--fz-grad-base','#55585e']]);
+$('contrast').innerHTML = [['Ink on Paper','15.56','AAA'],['Mute on Paper','4.88','AA'],['White on Faiz blue','5.67','AA'],['White on danger button','5.93','AA'],['Success ink on tint','4.80','AA'],['Danger ink on tint','5.19','AA'],['Warning ink on tint','4.93','AA'],['Info ink on tint','5.37','AA'],['Night text on Night','15.62','AAA'],['Night mute on Night','6.79','AA'],['Night ink on Night blue','7.69','AAA']].map(r => `<tr><td>${r[0]}</td><td>${r[1]}:1</td><td>${r[2]}</td></tr>`).join('');
+
+$('scale').innerHTML = [['Display','64 / 1.0, display','font:600 clamp(40px,7vw,64px)/1 var(--fz-font-display);letter-spacing:-.035em','Soft by design'],['Heading 1','48 / 1.1, display','font:600 clamp(32px,5vw,48px)/1.1 var(--fz-font-display);letter-spacing:-.02em','Build once, reuse everywhere'],['Heading 2','32 / 1.15, display','font:600 32px/1.15 var(--fz-font-display);letter-spacing:-.02em','Colour that means something'],['Heading 3','24 / 1.2, display','font:600 24px/1.2 var(--fz-font-display);letter-spacing:-.01em','Notifications and messages'],['Title','18 / 1.3, display','font:600 18px/1.3 var(--fz-font-display)','Project settings'],['Body','16 / 1.6, DM Sans 400','font:400 16px/1.6 var(--fz-font-body)','Faiz projects share one calm, readable interface so people can focus on their work.'],['Label','14 / 1.4, DM Sans 500','font:500 14px/1.4 var(--fz-font-body)','Save changes'],['Small','14 / 1.5, DM Sans 400','font:400 14px/1.5 var(--fz-font-body)','Shown to everyone on your team.'],['Caption','12.5 / 1.4, DM Sans 400','font:400 12.5px/1.4 var(--fz-font-body);color:var(--fz-mute)','Updated 5 minutes ago']].map(([a, b, st, t]) => `<div class="ts"><div><b style="font-weight:500">${a}</b><br><small>${b}</small></div><div style="${st}">${t}</div></div>`).join('');
+
+$('space').innerHTML = [[4,'s1'],[8,'s2'],[12,'s3'],[16,'s4'],[24,'s5'],[32,'s6'],[48,'s7'],[64,'s8'],[96,'s9']].map(([v, n]) => `<div class="bar"><code>--fz-${n}</code><i style="width:${v * 2}px"></i>${v} px</div>`).join('');
+$('rad').innerHTML = [['sm',6],['md',10],['lg',14],['xl',20],['pill',999]].map(([n, v]) => `<div style="border-radius:${v === 999 ? 34 : v}px">${n} ${v === 999 ? '' : v}</div>`).join('');
+$('sizes').innerHTML = [20, 24, 32, 48, 64].map(s => `<div>${ico('Settings', s)}${s} px</div>`).join('');
+$('tabbar').innerHTML = [['Home','Home',1],['Folder','Files'],['Messages','Inbox'],['Analytics','Reports'],['More','More']].map(([i, t, on]) => `<div class="${on ? 'on' : ''}">${ico(i, 32)}${t}</div>`).join('');
+
+document.querySelectorAll('[data-ic]').forEach(e => e.insertAdjacentHTML('afterbegin', ico(e.dataset.ic, +e.dataset.s || 24)));
+document.querySelectorAll('[data-pair]').forEach(e => e.innerHTML = e.dataset.pair.split(',').map(n => ico(n, 40)).join(''));
+
+const standalone = m => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 76 80" width="128" height="136" overflow="visible"><defs>${DEFS}</defs><g filter="url(#sh)">${m}</g></svg>`;
+function copy(text) {
+  const ok = () => say('SVG copied');
+  const fb = () => { const ta = document.createElement('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); let r = false; try { r = document.execCommand('copy'); } catch (e) {} ta.remove(); say(r ? 'SVG copied' : 'Copy is not available here'); };
+  try { navigator.clipboard.writeText(text).then(ok, fb); } catch (e) { fb(); }
+}
+const lib = $('lib');
+GROUPS.forEach(([title, list]) => {
+  const sec = document.createElement('section'); sec.style.paddingTop = '0';
+  sec.innerHTML = `<h3>${title}<small>${list.length}</small></h3>`;
+  const g = document.createElement('div'); g.className = 'tiles';
+  list.forEach(([name, m]) => {
+    const b = document.createElement('button'); b.className = 'tile'; b.type = 'button'; b.dataset.name = name.toLowerCase();
+    b.setAttribute('aria-label', 'Copy ' + name + ' icon as SVG');
+    b.innerHTML = ico(name, 56) + `<span>${name}</span>`;
+    b.onclick = () => copy(standalone(m)); g.appendChild(b);
+  });
+  sec.appendChild(g); lib.appendChild(sec);
+});
+$('q').addEventListener('input', e => {
+  const v = e.target.value.trim().toLowerCase(); let n = 0;
+  lib.querySelectorAll('.tile').forEach(t => { const s = !v || t.dataset.name.includes(v); t.hidden = !s; if (s) n++; });
+  lib.querySelectorAll('section').forEach(s => s.hidden = !s.querySelector('.tile:not([hidden])'));
+  $('none').hidden = n > 0;
+});
+
+document.querySelectorAll('.fz-switch').forEach(s => s.onclick = () => s.setAttribute('aria-checked', s.getAttribute('aria-checked') !== 'true'));
+const tt = ['Everything about this project in one place.', 'The latest changes, newest first.', 'Four people can edit this project.'];
+document.querySelectorAll('#tabs .fz-tab').forEach((t, i, all) => t.onclick = () => { all.forEach(x => x.setAttribute('aria-selected', x === t)); $('tabtxt').textContent = tt[i]; });
+$('toastbtn').onclick = () => say('Saved');
+
+const root = document.documentElement;
+try { const sv = localStorage.getItem('fz-theme'); if (sv) root.dataset.theme = sv; } catch (e) {}
+$('theme').onclick = () => {
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('fz-theme', root.dataset.theme); } catch (e) {}
+};
+const links = [...document.querySelectorAll('#nav a')];
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.dataset.id === e.target.id)); }), { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
+</script>
+</body>
+</html>
